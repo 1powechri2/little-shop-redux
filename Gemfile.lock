@@ -108,7 +108,7 @@ DEPENDENCIES
   launchy
   pg
   pry
-  rack-test
+  rack-test (~> 1.0.0)
   rspec
   rspec-core
   shotgun
