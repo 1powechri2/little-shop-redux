@@ -5,6 +5,11 @@ RSpec.describe Merchant do
 
       expect(merchant).to_not be_valid
     end
+    it "is created with id" do
+      merchant = Merchant.create(name: 'Pizza Hut')
+
+      expect(merchant.id).to eq(1)
+    end
   end
   describe 'CRUD methods' do
     it 'can be created' do
