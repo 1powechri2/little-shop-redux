@@ -1,5 +1,8 @@
 <% @merchants.each do |merchant| %>
-<ul>
-  <li><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></li>
-</ul>
+<h2> <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></h2>
+  <a href="/merchants/<%= merchant.id %>/edit"><button>Edit</button></a>
+  <form action='/merchants/<%= merchant.id %>' method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type='submit' value='delete' />
+  </form>
 <% end %>
