@@ -1,1 +1,7 @@
 <h1><%= @merchant.name %></h1>
+<a href="/merchants/<%= @merchant.id %>/edit"><button>Edit</button></a>
+<form action='/merchants/<%= @merchant.id %>' method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type='submit' value='delete' />
+</form>
+<a href="/merchants"> Merchants Index </a>
