@@ -24,4 +24,35 @@ RSpec.describe Item do
       expect(item).to_not be_valid
     end
   end
+  describe 'CRUD Methods' do
+    it 'can create a new item' do
+      item = Item.create(name: 'Doorknob',
+                        description: 'Made of wax, weighs 50lbs',
+                        price: 5,
+                        image: '/images/knob.jpg')
+
+      expect(item.name).to eq('Doorknob')
+      expect(item.description).to eq('Made of wax, weighs 50lbs')
+      expect(item.price).to eq(5)
+      expect(item.image).to eq('/images/knob.jpg')
+    end
+    it 'can read an item' do
+      item_one = Item.create(name: 'Doorknob',
+                        description: 'Made of wax, weighs 50lbs',
+                        price: 5,
+                        image: '/images/knob.jpg')
+
+      item_two = Item.create(name: 'Elf Boots',
+                            description: 'Size 9 Mens',
+                            price: 135,
+                            image: '/images/elf_boots.jpg')
+
+      first_item = Item.find(1)
+
+      second_item = Item.find(2)
+
+      expect(first_item.name).to eq('Doorknob')
+      expect(second_item.name).to eq('Elf Boots')                  
+    end
+  end
 end
