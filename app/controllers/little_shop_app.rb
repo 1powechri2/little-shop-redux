@@ -32,9 +32,27 @@ class LittleShopApp < Sinatra::Base
     Merchant.destroy(id.to_i)
     redirect '/merchants'
   end
-
+  
   get '/invoices' do
     @invoices = Invoice.all
     erb :'invoices/index'
+    
+  get '/items' do
+    @items = Item.all
+    erb :'items/index'
+  end
+
+  get '/items/new' do
+    erb :'items/new'
+  end
+  
+  get '/items/:id' do
+    @item = Item.find(params[:id])
+    erb :'items/show'
+  end
+
+  post '/items' do
+    Item.create(params[:item])
+    redirect '/items'
   end
 end
