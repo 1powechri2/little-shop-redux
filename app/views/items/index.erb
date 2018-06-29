@@ -1,1 +1,7 @@
- 
+<h1>Items</h1>
+<% @items.each do |item| %>
+<h2><a href="/items/<%= item.id %>"><%= item.name %></a></h2>
+<p><%= item.description %></p>
+<p><%= item.unit_price %></p>
+<p><%= item.image %></p>
+<% end %>
