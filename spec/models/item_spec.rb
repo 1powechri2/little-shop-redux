@@ -10,7 +10,7 @@ RSpec.describe Item do
 
       expect(item).to_not be_valid
     end
-    it 'it is not valid without a price' do
+    it 'it is not valid without a unit_price' do
       item = Item.new(name: 'Chris',
                      description: 'Half Alien')
 
@@ -19,7 +19,7 @@ RSpec.describe Item do
     it 'it is not valid without an image' do
       item = Item.new(name: 'Chris',
                      description: 'Half Alien',
-                     price: 40000000000000000)
+                     unit_price: 40000000000000000)
 
       expect(item).to_not be_valid
     end
@@ -28,23 +28,23 @@ RSpec.describe Item do
     it 'can create a new item' do
       item = Item.create(name: 'Doorknob',
                         description: 'Made of wax, weighs 50lbs',
-                        price: 5,
+                        unit_price: 5,
                         image: '/images/knob.jpg')
 
       expect(item.name).to eq('Doorknob')
       expect(item.description).to eq('Made of wax, weighs 50lbs')
-      expect(item.price).to eq(5)
+      expect(item.unit_price).to eq(5)
       expect(item.image).to eq('/images/knob.jpg')
     end
     it 'can read an item' do
       item_one = Item.create(name: 'Doorknob',
                         description: 'Made of wax, weighs 50lbs',
-                        price: 5,
+                        unit_price: 5,
                         image: '/images/knob.jpg')
 
       item_two = Item.create(name: 'Elf Boots',
                             description: 'Size 9 Mens',
-                            price: 135,
+                            unit_price: 135,
                             image: '/images/elf_boots.jpg')
 
       first_item = Item.find(1)
@@ -57,22 +57,22 @@ RSpec.describe Item do
     it 'can update an item' do
       item = Item.create(name: 'Doorknob',
                         description: 'Made of wax, weighs 50lbs',
-                        price: 5,
+                        unit_price: 5,
                         image: '/images/knob.jpg')
 
-      item.update(price: 10)
+      item.update(unit_price: 10)
 
-      expect(item.price).to eq(10)
+      expect(item.unit_price).to eq(10)
     end
     it 'can delete an item' do
       item_one = Item.create(name: 'Doorknob',
                         description: 'Made of wax, weighs 50lbs',
-                        price: 5,
+                        unit_price: 5,
                         image: '/images/knob.jpg')
 
       item_two = Item.create(name: 'Elf Boots',
                             description: 'Size 9 Mens',
-                            price: 135,
+                            unit_price: 135,
                             image: '/images/elf_boots.jpg')
 
       Item.delete(1)

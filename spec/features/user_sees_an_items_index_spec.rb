@@ -3,7 +3,7 @@ RSpec.describe 'a visitor' do
     it 'sees an index of items' do
       item = Item.create(name: 'Doorknob',
                         description: 'Made of wax, weighs 50lbs',
-                        price: 5,
+                        unit_price: 5,
                         image: '/images/knob.jpg')
 
       visit '/items'
@@ -15,7 +15,7 @@ RSpec.describe 'a visitor' do
     it 'sees the individual item of a specific id' do
       item = Item.create(name: 'Doorknob',
                         description: 'Made of wax, weighs 50lbs',
-                        price: 5,
+                        unit_price: 5,
                         image: '/images/knob.jpg')
 
       visit '/items/1'
@@ -30,7 +30,7 @@ RSpec.describe 'a visitor' do
 
       fill_in("item[name]", with: "Beer Can")
       fill_in("item[description]", with: "Empty")
-      fill_in("item[price]", with: 20)
+      fill_in("item[unit_price]", with: 20)
       fill_in("item[image]", with: "images/rolling_rock.jpeg")
       save_and_open_page
 
