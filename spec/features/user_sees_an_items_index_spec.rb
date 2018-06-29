@@ -32,7 +32,6 @@ RSpec.describe 'a visitor' do
       fill_in("item[description]", with: "Empty")
       fill_in("item[price]", with: 20)
       fill_in("item[image]", with: "images/rolling_rock.jpeg")
-      save_and_open_page
 
       click_on("make a new dang dern item")
 
