@@ -52,7 +52,34 @@ RSpec.describe Item do
       second_item = Item.find(2)
 
       expect(first_item.name).to eq('Doorknob')
-      expect(second_item.name).to eq('Elf Boots')                  
+      expect(second_item.name).to eq('Elf Boots')
+    end
+    it 'can update an item' do
+      item = Item.create(name: 'Doorknob',
+                        description: 'Made of wax, weighs 50lbs',
+                        price: 5,
+                        image: '/images/knob.jpg')
+
+      item.update(price: 10)
+
+      expect(item.price).to eq(10)
+    end
+    it 'can delete an item' do
+      item_one = Item.create(name: 'Doorknob',
+                        description: 'Made of wax, weighs 50lbs',
+                        price: 5,
+                        image: '/images/knob.jpg')
+
+      item_two = Item.create(name: 'Elf Boots',
+                            description: 'Size 9 Mens',
+                            price: 135,
+                            image: '/images/elf_boots.jpg')
+
+      Item.delete(1)
+
+      Item.delete(2)
+
+      expect(Item.all).to eq([])
     end
   end
 end
