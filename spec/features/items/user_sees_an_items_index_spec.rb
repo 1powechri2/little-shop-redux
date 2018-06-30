@@ -9,6 +9,7 @@ RSpec.describe 'a visitor' do
       visit '/items'
 
       expect(page).to have_content('Doorknob')
+      expect(page).to have_current_path('/items')
     end
   end
   context 'visiting /items/id' do
@@ -39,6 +40,7 @@ RSpec.describe 'a visitor' do
       expect(page).to have_content("Empty")
       expect(page).to have_content(20)
       expect(page).to have_content("images/rolling_rock.jpeg")
+      expect(page).to have_current_path('/items')
     end
   end
 end

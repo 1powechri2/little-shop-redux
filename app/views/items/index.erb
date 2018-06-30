@@ -1,7 +1,20 @@
+<html>
+<head>
+  <link rel='stylesheet' href='/public/items/item_index.css'>
+  <title>Items Index</title>
+</head>
+<body>
 <h1>Items</h1>
+<a href='/items/new'> New Item </a>
 <% @items.each do |item| %>
 <h2><a href="/items/<%= item.id %>"><%= item.name %></a></h2>
 <p><%= item.description %></p>
 <p><%= item.unit_price %></p>
 <p><%= item.image %></p>
+<form action='/items/<%= item.id %>/edit' id='edit-button' method='POST'>
+  <input type='hidden' name='_method' value='PUT'>
+  <input type='submit' value='EDIT'>
+</form>
 <% end %>
+</body>
+</html>
