@@ -22,7 +22,7 @@ RSpec.describe 'a visitor' do
       invoice_1 = Invoice.create(merchant_id: 123, status: 'pending')
 
       visit '/invoices'
-      save_and_open_page
+
       click_on('Delete')
 
       expect(current_path).to eq('/invoices')

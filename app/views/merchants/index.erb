@@ -42,14 +42,15 @@
     </aside>
   </section>
     <a href="/merchants/new"> New Merchant </a> -->
+  <h1>Merchants</h1>
+  <a href='/merchants/new'> New Merchant </a>
   <% @merchants.each do |merchant| %>
   <h2> <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></h2>
-    <a href="/merchants/<%= merchant.id %>/edit"><button>Edit</button></a>
+    <a href="/merchants/<%= merchant.id %>/edit">Edit</a>
     <form action='/merchants/<%= merchant.id %>' method="POST">
       <input type="hidden" name="_method" value="DELETE">
       <input type='submit' value='delete' />
     </form>
   <% end %>
-  <a href='/merchants/new'> New Merchant </a>
 </body>
 </html>
