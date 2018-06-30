@@ -6,7 +6,7 @@ class CreateInvoiceItems < ActiveRecord::Migration[5.2]
       t.integer           :quantity
       t.integer           :unit_price
 
-      timestamps null: false
-    end 
+      t.timestamps null: false
+    end
   end
 end
