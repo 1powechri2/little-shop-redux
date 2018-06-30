@@ -2,3 +2,9 @@
 <p><%= @item.description %></p>
 <p><%= @item.unit_price %></p>
 <p><img src='<% @item.image %>' alt='Capybara'/></p>
+<a href="/items/<%= @item.id %>/edit"><button>EDIT</button></a>
+<form action='/items/<%= @item.id %>' method='POST'>
+  <input type='hidden' name='_method' value='DELETE'>
+  <input type='submit' value='Delete'/>
+</form>
+<a href='/items'>Items Index</a>

@@ -11,9 +11,10 @@
 <p><%= item.description %></p>
 <p><%= item.unit_price %></p>
 <p><%= item.image %></p>
-<form action='/items/<%= item.id %>/edit' id='edit-button' method='POST'>
-  <input type='hidden' name='_method' value='PUT'>
-  <input type='submit' value='EDIT'>
+<a href="/items/<%= item.id %>/edit"><button>EDIT</button></a>
+<form action='/items/<%=item.id%>' method='POST'>
+  <input type='hidden' name='_method' value='DELETE'>
+  <input type='submit' value='Delete'>
 </form>
 <% end %>
 </body>
