@@ -82,4 +82,18 @@ RSpec.describe Item do
       expect(Item.all).to eq([])
     end
   end
+  describe 'return quantity from invoice_item class' do
+    it 'returns correct item quantity' do
+      ii = InvoiceItem.create(item_id: 263519844, invoice_id: 46, quantity: 4, unit_price: 40)
+      item_1 = Item.create(id: 263519844,
+                          name: 'Doorknob',
+                          description: 'Made of wax, weighs 50lbs',
+                          unit_price: 5,
+                              image: '/images/knob.jpg')
+
+      item_quantity = item_1.get_quantity(item_1.id)
+
+      expect(item_quantity).to eq(4)
+    end
+  end
 end
