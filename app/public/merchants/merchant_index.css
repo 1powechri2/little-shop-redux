@@ -1,0 +1,33 @@
+/* 
+body {
+  background-color: purple;
+}
+.navbar {
+  background-color: white;
+  width: 100%;
+  padding: 0px 10px 0px 10px;
+  top: 0;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h3 {
+  font-family: courier;
+  font-size: 30px;
+}
+
+
+
+.nav-links {
+  font-family: courier;
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  justify-content: space-around;
+} */
+
+/* .navbar  */
