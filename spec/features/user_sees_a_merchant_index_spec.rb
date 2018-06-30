@@ -31,7 +31,7 @@ RSpec.describe 'a visitor' do
       click_on('delete')
 
       expect(current_path).to eq('/merchants')
-      # expect(page).to_not have_content('Old')
+      expect(page).to_not have_content('Old')
     end
     it 'can create a new merchant from index page' do
       visit '/merchants'
