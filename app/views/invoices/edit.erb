@@ -1,0 +1,7 @@
+<form action="/invoices/<%= @invoice.id %>" method="POST">
+  <p>Edit Invoice <%= @invoice.id %></p>
+  <input type='hidden' name='_method' value="PUT" />
+  <input type='text' name='invoice[id]' value='<%= @invoice.id %>' /> <br/>
+  <input type="submit" />
+</form>
+<a href="/invoices"> Invoices Index </a>
