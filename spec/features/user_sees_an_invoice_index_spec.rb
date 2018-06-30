@@ -17,4 +17,13 @@ RSpec.describe 'a visitor' do
       expect(page).to have_content(invoice_1.id)
     end
   end
+  context 'visiting /invoices/edit' do
+    it 'sees the edit form for an invoice' do
+      invoice_1 = Invoice.create(merchant_id: 123, status: 'pending')
+
+      visit '/invoices/1/edit'
+
+      expect(page).to have_content("Edit Invoice #{invoice_1.id}")
+    end
+  end
 end
