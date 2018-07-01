@@ -13,4 +13,14 @@ class Invoice < ActiveRecord::Base
     ii = InvoiceItem.where(invoice_id: invoice_id)
     ii.sum("invoice_items.unit_price * invoice_items.quantity")
   end
+
+  def self.percent_shipped
+    shipped = Invoice.all.where(status: 'shipped').count
+    avg = shipped.to_f/Invoice.all.count
+    avg * 100
+  end
+
+  def self.percent_pending
+    100 - percent_shipped
+  end
 end

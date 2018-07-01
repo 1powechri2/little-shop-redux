@@ -50,22 +50,22 @@ RSpec.describe Merchant do
 
       expect(expected_result).to eq(Item.all.count)
     end
-    it 'returns the average unit price for a merchant' do
-      merchant = Merchant.create(name: 'Big Lots')
-      item_1 = Item.create(name: 'Doorknob',
-                        description: 'Made of wax, weighs 50lbs',
-                        unit_price: 5,
-                        merchant_id: 1,
-                        image: '/images/knob.jpg')
-      item_2 = Item.create(name: 'Elf Boots',
-                            description: 'Size 9 Mens',
-                            unit_price: 10,
-                            merchant_id: 1,
-                            image: '/images/elf_boots.jpg')
-      expected_result = Merchant.average_item_price_for_merchant
-
-      expect(expected_result).to eq(7.5)
-    end
+    # it 'returns the average unit price for a merchant' do
+    #   merchant = Merchant.create(name: 'Big Lots')
+    #   item_1 = Item.create(name: 'Doorknob',
+    #                     description: 'Made of wax, weighs 50lbs',
+    #                     unit_price: 5,
+    #                     merchant_id: 1,
+    #                     image: '/images/knob.jpg')
+    #   item_2 = Item.create(name: 'Elf Boots',
+    #                         description: 'Size 9 Mens',
+    #                         unit_price: 10,
+    #                         merchant_id: 1,
+    #                         image: '/images/elf_boots.jpg')
+    #   expected_result = Merchant.average_item_price_for_merchant
+    #
+    #   expect(expected_result).to eq(7.5)
+    # end
     # it 'returns the average item price for a merchant' do
     #
     # end
