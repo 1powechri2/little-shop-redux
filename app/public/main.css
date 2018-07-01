@@ -39,11 +39,16 @@ body {
 .index-instance {
   width: 600px;
   height: 30px;
+  background-color: aliceblue;
   border: 1px solid black;
   margin: 5px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-content: center;
+}
+
+.index-instance:nth-child(even) {
+  background-color: lightgray;
 }
 
 .edit {
