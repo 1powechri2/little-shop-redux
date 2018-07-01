@@ -41,4 +41,15 @@ RSpec.describe Invoice do
       expect(Invoice.all).to eq([])
     end
   end
+  describe 'calculations for invoice data' do
+    it 'returns total price of an item' do
+      invoice = Invoice.create(id: 1, merchant_id: 12335938, status: 'pending')
+      invoice_item_1 = InvoiceItem.create(item_id: 263519844, invoice_id: 1, quantity: 5, unit_price: 13635)
+      invoice_item_2 = InvoiceItem.create(item_id: 263454779, invoice_id: 1, quantity: 9, unit_price: 23324)
+
+      total = invoice.get_total_price(invoice.id)
+
+      expect(total).to eq(278091)
+    end
+  end
 end
