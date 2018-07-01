@@ -69,10 +69,10 @@ RSpec.describe Merchant do
     it 'returns the total unit price for a merchant' do
       merchant = Merchant.create(name: 'Big Lots')
       item_1 = Item.create(name: 'Doorknob',
-                        description: 'Made of wax, weighs 50lbs',
-                        unit_price: 5,
-                        merchant_id: 1,
-                        image: '/images/knob.jpg')
+                            description: 'Made of wax, weighs 50lbs',
+                            unit_price: 5,
+                            merchant_id: 1,
+                            image: '/images/knob.jpg')
       item_2 = Item.create(name: 'Elf Boots',
                             description: 'Size 9 Mens',
                             unit_price: 10,
@@ -81,6 +81,50 @@ RSpec.describe Merchant do
       expected_result = Merchant.total_item_cost_for_merchant
 
       expect(expected_result[0].total_price_of_items).to eq(15)
+    end
+    it "returns the merchant with the most item's information" do
+      merchant_1 = Merchant.create(name: 'Big Lots')
+      merchant_2 = Merchant.create(name: 'El Pulpo')
+      item_1 = Item.create(name: 'Doorknob',
+                            description: 'Made of wax, weighs 50lbs',
+                            unit_price: 5,
+                            merchant_id: 1,
+                            image: '/images/knob.jpg')
+      item_2 = Item.create(name: 'Elf Boots',
+                            description: 'Size 9 Mens',
+                            unit_price: 10,
+                            merchant_id: 1,
+                            image: '/images/elf_boots.jpg')
+      item_3 = Item.create(name: 'Spector',
+                            description: 'Totally not a secret evil organization',
+                            unit_price: 5000,
+                            merchant_id: 2,
+                            image: '/images/Auric_Goldfinger.jpg')
+      expected_result = Merchant.by_most_items
+
+      expect(expected_result).to eq(merchant_1)
+    end
+    it 'returns the merchant with the highest priced item' do
+      merchant_1 = Merchant.create(name: 'Big Lots')
+      merchant_2 = Merchant.create(name: 'El Pulpo')
+      item_1 = Item.create(name: 'Doorknob',
+                            description: 'Made of wax, weighs 50lbs',
+                            unit_price: 5,
+                            merchant_id: 1,
+                            image: '/images/knob.jpg')
+      item_2 = Item.create(name: 'Elf Boots',
+                            description: 'Size 9 Mens',
+                            unit_price: 10,
+                            merchant_id: 1,
+                            image: '/images/elf_boots.jpg')
+      item_3 = Item.create(name: 'Spector',
+                            description: 'Totally not a secret evil organization',
+                            unit_price: 5000,
+                            merchant_id: 2,
+                            image: '/images/Auric_Goldfinger.jpg')
+      expected_result = Merchant.by_highest_priced_item
+
+      expect(expected_result).to eq(merchant_2)
     end
   end
 end
