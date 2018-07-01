@@ -5,5 +5,10 @@ class Merchant < ActiveRecord::Base
 
   def self.total_number_of_items(merchant_id)
     merchant = Merchant.find(merchant_id)
+    merchant.items.count
+  end
+
+  def self.average_item_price_for_merchant
+    merchant = Merchant.joins(:items).select('merchant.*, avg(items.unit_price) AS average_unit_price, sum(items.unit_price) AS total_cost_of_items').group('merchant.id')
   end
 end
