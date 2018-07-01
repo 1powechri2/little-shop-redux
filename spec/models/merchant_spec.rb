@@ -66,7 +66,8 @@ RSpec.describe Merchant do
 
       expect(expected_result).to eq(7.5)
     end
-    it 'returns the average item price for a merchant' do
-    end 
+    # it 'returns the average item price for a merchant' do
+    #
+    # end
   end
 end

@@ -9,7 +9,6 @@ class Merchant < ActiveRecord::Base
   end
 
   def self.average_item_price_for_merchant
-    Merchant.joins(:items).select(merchants.*)
-    require 'pry';binding.pry
+    merchant = Merchant.joins(:items).select('merchant.*, avg(items.unit_price) AS average_unit_price, sum(items.unit_price) AS total_cost_of_items').group('merchant.id')
   end
 end
