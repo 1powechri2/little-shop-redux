@@ -54,6 +54,11 @@ class LittleShopApp < Sinatra::Base
     redirect "/invoices/#{id}"
   end
 
+  delete '/invoices/:id' do |id|
+    Invoice.destroy(id.to_i)
+    redirect '/invoices'
+  end
+
   get '/items' do
     @items = Item.all
     erb :'items/index'
