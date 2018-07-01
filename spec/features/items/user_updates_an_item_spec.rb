@@ -1,25 +1,13 @@
 RSpec.describe 'item edit feature' do
-  context 'visitor' do
-    it 'clicks on item name to go to update page' do
-      item = Item.create(name: 'Doorknob',
-                        description: 'Made of wax, weighs 50lbs',
-                        unit_price: 5,
-                        image: '/images/knob.jpg')
-
-      visit '/items'
-
-      click_on('EDIT')
-
-      expect(current_path).to eq('/items/1/edit')
-    end
+  context 'visiting item/#/edit page' do
     it 'can edit item from edit page' do
       item = Item.create(name: 'Doorknob',
-                        description: 'Made of wax, weighs 50lbs',
-                        unit_price: 5,
-                        image: '/images/knob.jpg')
+                         description: 'Made of wax, weighs 50lbs',
+                         unit_price: 500,
+                         image: '/images/knob.jpg')
 
 
-      visit '/items/1/edit'
+      visit "/items/#{item.id}/edit"
 
       fill_in("item[name]", with: "Beer Can")
       fill_in("item[description]", with: "Empty")
@@ -28,13 +16,12 @@ RSpec.describe 'item edit feature' do
 
       click_on('submit')
 
-      expect(current_path).to eq('/items/1')
+      expect(current_path).to eq("/items/#{item.id}")
 
       expect(page).to have_content("Beer Can")
       expect(page).to have_content("Empty")
       expect(page).to have_content(20)
       # expect(page).to have_content("images/rolling_rock.jpeg")
-      expect(page).to have_current_path('/items/1')
     end
   end
 end
