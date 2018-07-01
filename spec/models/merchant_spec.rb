@@ -62,9 +62,9 @@ RSpec.describe Merchant do
                             unit_price: 10,
                             merchant_id: 1,
                             image: '/images/elf_boots.jpg')
-      expected_result = Merchant.average_item_price_for_merchant
+      expected_result = Merchant.average_and_total_item_price_for_merchant
 
-      expect(expected_result).to eq(7.5)
+      expect(expected_result[0].average_unit_price).to eq(7.5)
     end
     # it 'returns the average item price for a merchant' do
     #
