@@ -28,7 +28,7 @@ RSpec.describe 'a visitor' do
       Merchant.create(name: 'Old')
 
       visit '/merchants'
-      click_on('delete')
+      click_on('Delete')
 
       expect(current_path).to eq('/merchants')
       expect(page).to_not have_content('Old')
