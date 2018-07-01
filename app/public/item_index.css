@@ -1,0 +1,116 @@
+body {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50px 200px auto;
+  grid-gap: 5px;
+  font-family: helvetica;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: blue;
+}
+
+.navbar {
+  background-color: lavender;
+  display: grid;
+  grid-template-columns: repeat(12, auto);
+}
+
+.navbar h3 {
+  grid-column: span 2;
+  margin-left: 10px;
+}
+
+.first {
+  grid-column: -3;
+}
+
+.second {
+  grid-column: -2;
+}
+
+.third {
+  grid-column: -1;
+}
+
+.header {
+  background-color: mistyrose;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard {
+  align-self: flex-start;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+.create-new button {
+  color: black;
+  font-size: 20px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+.create-new button:hover {
+  color: blue;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
+
+.index {
+  background-color: paleturquoise;
+  padding: 20px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-rows: repeat(auto-fit, minmax);
+}
+
+.index-instance {
+  background-color: papayawhip;
+  border: 1px solid black;
+  text-align: center;
+  position: relative;
+}
+
+.index-title {
+  text-decoration: underline;
+}
+
+.edit button {
+  background-color: yellow;
+  width: 70px;
+  margin: 5px;
+  color: black;
+  font-size: 20px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+.edit button:hover {
+  color: blue;
+}
+
+input[type=submit] {
+  background-color: indianred;
+  color: black;
+  width: 70px;
+  font-size: 20px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+input[type=submit]:hover {
+  color: blue;
+}
