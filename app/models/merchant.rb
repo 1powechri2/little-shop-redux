@@ -22,8 +22,11 @@ class Merchant < ActiveRecord::Base
     merchant.select(:id).order('item_count DESC')[0]
   end
 
+  def self.merchant_statistics
+    joins(:items).select('merchants.*, count(items.id) AS total_number_of_items, avg(items.unit_price) AS average_item_price_for_merchant, sum(items.unit_price) AS total_item_cost_for_merchant').group('merchants.id')
+  end
+
   def self.by_highest_priced_item
     Merchant.joins(:items).order('unit_price DESC')[0]
-    # require 'pry';binding.pry
   end
 end
