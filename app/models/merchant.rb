@@ -8,8 +8,12 @@ class Merchant < ActiveRecord::Base
     merchant.items.count
   end
 
-  def self.average_and_total_item_price_for_merchant
+  def self.average_item_price_for_merchant
     #WHYWHYWHWYHWYHWYHWYWHWYWY * FROM and GROUP_BY ineffective????
-    joins(:items).select('merchants.*, avg(items.unit_price) AS average_unit_price, sum(items.unit_price) AS total_cost_of_items').group('merchants.id')
+    joins(:items).select('merchants.*, avg(items.unit_price) AS average_unit_price').group('merchants.id')
+  end
+
+  def self.total_item_cost_for_merchant
+    joins(:items).select('merchants.*, sum(items.unit_price) AS total_price_of_items').group('merchants.id')
   end
 end
