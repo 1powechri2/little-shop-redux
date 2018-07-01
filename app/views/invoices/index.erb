@@ -1,9 +1,32 @@
-<h1> Invoices </h1>
-<% @invoices.each do |invoice| %>
-<h2> <a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></h2>
-  <a href="/invoices/<%= invoice.id %>/edit"><button>Edit</button></a>
-  <form action='/invoices/<%= invoice.id %>' method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type='submit' value='Delete' />
-  </form>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='/main.css' >
+    <title>Invoices Index</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <h3>Little Shop</h3>
+      <div class='first'><a href='/merchants'><h3>Merchants</h3></a></div>
+      <div class='second'><a href='/items'><h3>Items</h3></a></div>
+      <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
+    </div>
+    <div class='header'>
+      <a href='/invoices/dashboard' class='dashboard'><h3>Dashboard</h3></a>
+      <h1>Invoices</h1>
+      <a href='/invoices/new' class='create-new'><button>Create A New Invoice</button></a>
+    </div>
+    <div class='index'>
+      <% @invoices.each do |invoice| %>
+        <div class=index-instance>
+          <h3><a href="/invoices/<%= invoice.id %>" class='index-title'><%= invoice.id %></a></h3>
+          <a href="/invoices/<%= invoice.id %>/edit" class='edit'><button>Edit</button></a>
+          <form class='delete' action='/invoices/<%= invoice.id %>' method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type='submit' value='Delete' />
+          </form>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>

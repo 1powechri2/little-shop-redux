@@ -76,6 +76,7 @@ a:hover {
   background-color: aliceblue;
   border: 1px solid black;
   margin: 5px;
+  padding: 0px 5px;
   display: grid;
   grid-template-columns: 70% 10% 10%;
   align-content: center;
