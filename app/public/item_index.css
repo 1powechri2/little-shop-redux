@@ -63,41 +63,35 @@ a:hover {
   color: blue;
 }
 
+img {
+  height: 200px;
+  width: 200px;
+}
+
 .index {
   background-color: paleturquoise;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 20px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-rows: repeat(auto-fit, minmax);
 }
 
 .index-instance {
-  width: 70%;
-  height: 30px;
-  background-color: aliceblue;
+  background-color: papayawhip;
   border: 1px solid black;
-  margin: 5px;
-  padding: 0px 5px;
-  display: grid;
-  grid-template-columns: 70% 10% 10%;
-  align-content: center;
-}
-
-.index-instance:nth-child(even) {
-  background-color: lightgray;
+  text-align: center;
+  position: relative;
 }
 
 .index-title {
   text-decoration: underline;
 }
 
-.edit {
-  grid-column: -2;
-  margin-top: 16px;
-}
-
 .edit button {
   background-color: yellow;
   width: 70px;
+  margin: 5px;
   color: black;
   font-size: 20px;
   font-family: helvetica;
@@ -106,11 +100,6 @@ a:hover {
 
 .edit button:hover {
   color: blue;
-}
-
-.delete {
-  grid-column: -1;
-  margin-top: 16px;
 }
 
 input[type=submit] {

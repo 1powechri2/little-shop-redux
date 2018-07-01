@@ -25,7 +25,7 @@ CSV.foreach('./data/items.csv', headers: true, header_converters: :symbol) do |i
               description: item[:description],
               unit_price: item[:unit_price],
               merchant_id: item[:merchant_id],
-              image: 'https://a-z-animals.com/media/animals/images/original/capybara3.jpg',
+              image: '/whatdomean.jpg',
               created_at: item[:created_at],
               updated_at: item[:updated_at])
 end
