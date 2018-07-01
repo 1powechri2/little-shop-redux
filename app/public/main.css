@@ -3,22 +3,43 @@ body {
   display: grid;
   grid-template-rows: 50px 200px auto;
   grid-gap: 5px;
+  font-family: helvetica;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: blue;
 }
 
 .navbar {
-  background-color: teal;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  background-color: lavender;
+  display: grid;
+  grid-template-columns: repeat(12, auto);
 }
 
-.navbar ul li {
-  display: inline-block;
+.navbar h3 {
+  grid-column: span 2;
+  margin-left: 10px;
+}
+
+.first {
+  grid-column: -3;
+}
+
+.second {
+  grid-column: -2;
+}
+
+.third {
+  grid-column: -1;
 }
 
 .header {
-  background-color: pink;
+  background-color: mistyrose;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,23 +48,36 @@ body {
 
 .dashboard {
   align-self: flex-start;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+.create-new button {
+  color: black;
+  font-size: 20px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+.create-new button:hover {
+  color: blue;
 }
 
 .index {
-  background-color: aqua;
+  background-color: paleturquoise;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .index-instance {
-  width: 600px;
+  width: 70%;
   height: 30px;
   background-color: aliceblue;
   border: 1px solid black;
   margin: 5px;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: 70% 10% 10%;
   align-content: center;
 }
 
@@ -51,11 +85,42 @@ body {
   background-color: lightgray;
 }
 
+.index-title {
+  text-decoration: underline;
+}
+
 .edit {
   grid-column: -2;
+  margin-top: 16px;
+}
+
+.edit button {
+  background-color: yellow;
+  width: 70px;
+  color: black;
+  font-size: 20px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+.edit button:hover {
+  color: blue;
 }
 
 .delete {
   grid-column: -1;
-  margin-top: 20px;
+  margin-top: 16px;
+}
+
+input[type=submit] {
+  background-color: indianred;
+  color: black;
+  width: 70px;
+  font-size: 20px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+input[type=submit]:hover {
+  color: blue;
 }
