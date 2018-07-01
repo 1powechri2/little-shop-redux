@@ -24,21 +24,68 @@ RSpec.describe 'a visitor' do
       expect(current_path).to eq('/merchants/1')
       expect(page).to have_content('Old')
     end
+    xit 'can take them to the edit page' do
+      merchant = Merchant.create(name: 'Old')
+
+      visit '/merchants'
+
+      within('.edit') do
+        click_on('Edit')
+      end
+
+      expect(current_path).to eq('/merchants/merchant.id/edit')
+    end
     it 'can delete a merchant' do
       Merchant.create(name: 'Old')
 
       visit '/merchants'
-      click_on('delete')
+      click_on('Delete')
 
       expect(current_path).to eq('/merchants')
       expect(page).to_not have_content('Old')
     end
-    it 'can create a new merchant from index page' do
+    xit 'can take them to the create new page' do
       visit '/merchants'
 
-      click_on("New Merchant")
+      within('.create-new') do
+        click_button("Create A New Merchant")
+      end
 
       expect(current_path).to eq('/merchants/new')
+      # expect(page).to have_content('Enter a new Merchant:')
+    end
+    it 'can take them to the items index page' do
+      visit '/merchants'
+
+      click_on('Items')
+
+      expect(current_path).to eq('/items')
+    end
+    it 'can take them to the invoices index page' do
+      visit '/merchants'
+
+      click_on('Invoices')
+
+      expect(current_path).to eq('/invoices')
+    end
+    it 'can take them to the dashboard page' do
+        visit '/merchants'
+
+      click_on('Dashboard')
+
+      expect(current_path).to eq('/merchants/dashboard')
+    end
+    it "it has 'Little Shop' on the page" do
+      visit '/merchants'
+
+      expect(page).to have_content('Little Shop')
+    end
+    it 'has the Merchants title on the page' do
+      visit '/merchants'
+
+      within('.header') do
+        expect(page).to have_content('Merchants')
+      end
     end
   end
 end
