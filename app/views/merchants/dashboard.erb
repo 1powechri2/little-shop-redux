@@ -14,5 +14,14 @@
     <div class='header'>
       <h1>Merchants Dashboard</h1>
     </div>
+    <h3>Merchant with most items: <%= @merchant_most_items.name %></h3>
+    <h3>Merchant with most expensive item: <%= @merchant_with_priciest_item.name %></h3>
+    <% @merch_stats.each do |merchant| %>
+
+      <p><%= merchant.name %></p>
+      <p>Item Count: <%= merchant.total_number_of_items %></p>
+      <p>Avg Item Price: <%= '%.2f' % merchant.average_item_price_for_merchant %></p>
+      <p>Total Cost of Items: <%= '%.2f' % merchant.total_item_cost_for_merchant.to_f %></p>
+    <% end %>
   </body>
 </html>
