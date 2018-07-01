@@ -33,4 +33,22 @@ RSpec.describe Merchant do
       expect(Merchant.all).to eq([])
     end
   end
+  context 'Calculations for Merchant Dashboard' do
+    it 'returns total number of items for merchant' do
+      merchant = Merchant.create(name: 'Big Lots')
+      item_1 = Item.create(name: 'Doorknob',
+                        description: 'Made of wax, weighs 50lbs',
+                        unit_price: 5,
+                        merchant_id: 1,
+                        image: '/images/knob.jpg')
+      item_2 = Item.create(name: 'Elf Boots',
+                            description: 'Size 9 Mens',
+                            unit_price: 135,
+                            merchant_id: 1,
+                            image: '/images/elf_boots.jpg')
+      expected_result = Merchant.total_number_of_items(merchant.id)
+
+      expect(expected_result).to eq(2)
+    end
+  end
 end
