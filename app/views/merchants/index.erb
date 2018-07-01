@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel='stylesheet' href='merchants/merchant_index.css' type='text/css' title='CSS'>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <title>wwwwwwwwwwuuuuuuuhhhhhhhh</title>
+  <link rel='stylesheet' type='text/css' href='/main.css' >
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <title>Merchants Index</title>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-static-top">
+  <!-- <nav class="navbar navbar-inverse navbar-static-top">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -32,23 +32,30 @@
 			</ul>
 		</div>
 	</div>
-</nav>
-  <!-- <section class="navbar">
-    <h3>LittleShop</h3>
-    <aside class="nav-links">
-      <a href='/merchants'>Merchants</a>
-      <a href='/items'>Items</a>
-      <a href='/invoices'>Invoices</a>
-    </aside>
-  </section>
-    <a href="/merchants/new"> New Merchant </a> -->
-  <% @merchants.each do |merchant| %>
-  <h2> <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></h2>
-    <a href="/merchants/<%= merchant.id %>/edit"><button>Edit</button></a>
-    <form action='/merchants/<%= merchant.id %>' method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type='submit' value='delete' />
-    </form>
-  <% end %>
-</body>
-</html>
+</nav> -->
+  <div class="navbar">
+    <h3>Little Shop</h3>
+    <ul>
+      <li><a href='/merchants'><h3>Merchants</h3></a></li>
+      <li><a href='/items'><h3>Items</h3></a></li>
+      <li><a href='/invoices'><h3>Invoices</h3></a></li>
+    </ul>
+  </div>
+  <div class='header'>
+    <h3 class='dashboard'>Dashboard</h3>
+    <h1>Merchants</h1>
+    <a href='/merchants/new'><h3>Create A New Merchant</h3></a>
+  </div>
+  <div class='index'>
+    <% @merchants.each do |merchant| %>
+      <div class=index-instance>
+        <h3><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></h3>
+        <a href="/merchants/<%= merchant.id %>/edit" class='edit'><h3>Edit</h3></a>
+        <form class='delete' action='/merchants/<%= merchant.id %>' method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type='submit' value='Delete' />
+        </form>
+      </div>
+    <% end %>
+  </div>
+

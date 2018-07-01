@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Item Dashboard</title>
+  </head>
+  <body>
+    <h1>欢迎观临！你这个婊子</h1><br>
+    <h3>Total Items:</h3> <h5><%= @items_count %></h5>
+    <h3>Average Price per Item: </h3><h5>$<%= @item_price_average.round(2) %></h5>
+    <h3>Most Recent Item: </h3><h5><%= @most_recent_item.name %></h5>
+    <h3>Least Recent Item: </h3><h5><%= @least_recent_item.name %></h5>
+  </body>
+</html>

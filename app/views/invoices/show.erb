@@ -1,7 +1,14 @@
-<h1><%= @invoice.id %></h1>
-<a href="/invoices/<%= @invoice.id %>/edit"><button>Edit</button></a>
-<form action='/invoices/<%= @invoice.id %>' method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type='submit' value='Delete' />
-</form>
-<a href="/invoices"> Invoices Index </a>
+<h1>Invoice No.: <%= @invoice.id %></h1>
+  <h3>Total Amount: $<%= '%.2f' % (@invoice.get_total_price(@invoice.id).to_f/100) %></h3>
+  <a href="/invoices/<%= @invoice.id %>/edit"><button>Edit</button></a>
+  <form action='/invoices/<%= @invoice.id %>' method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type='submit' value='Delete' />
+  </form>
+  <a href="/invoices"> Invoices Index </a>
+  <% @invoice.invoice_items.each do |invoice_item|%>
+    <p>Item ID: <%= invoice_item.item_id %></p>
+    <p>Item Name: <%= invoice_item.item.name %></p>
+    <p>Item Quantity: <%= invoice_item.quantity %></p>
+    <p>Item Price: <%= invoice_item.unit_price.to_s.insert(-3, ".") %></p>
+  <% end %>
