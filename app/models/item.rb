@@ -2,13 +2,21 @@ class Item < ActiveRecord::Base
   validates_presence_of :name, :description, :unit_price, :image
 
   has_many :invoice_items
-  has_many :invoices, through: 
+  belongs_to :merchant
 
-  def get_quantity(invoice_id)
-    InvoiceItem.where(invoice_id: invoice_id)
+  def self.total_items
+    Item.all.count
   end
 
-  def get_unit_price(item_id)
-    InvoiceItem.find_by(item_id: item_id).unit_price
+  def self.average_unit_price
+    average(:unit_price)
+  end
+
+  def self.most_recent_item
+    order(:created_at).last
+  end
+
+  def self.least_recent_item
+    order(:created_at).first
   end
 end

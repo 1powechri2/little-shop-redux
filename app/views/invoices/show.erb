@@ -1,5 +1,5 @@
 <h1>Invoice No.: <%= @invoice.id %></h1>
-  <h3>Total Price: $<%= '%.2f' % (@invoice.get_total_price(@invoice.id).to_f/100) %></h3>
+  <h3>Total Amount: $<%= '%.2f' % (@invoice.get_total_price(@invoice.id).to_f/100) %></h3>
   <a href="/invoices/<%= @invoice.id %>/edit"><button>Edit</button></a>
   <form action='/invoices/<%= @invoice.id %>' method="POST">
     <input type="hidden" name="_method" value="DELETE">
