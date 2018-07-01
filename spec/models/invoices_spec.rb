@@ -52,4 +52,19 @@ RSpec.describe Invoice do
       expect(total).to eq(278091)
     end
   end
+  describe 'invoice calculations' do
+    it 'returns the average status for all invoices' do
+      invoice_one   = Invoice.create(id: 1, merchant_id: 1, status: 'shipped')
+      invoice_two   = Invoice.create(id: 2, merchant_id: 1, status: 'shipped')
+      invoice_three = Invoice.create(id: 3, merchant_id: 1, status: 'shipped')
+      invoice_four  = Invoice.create(id: 4, merchant_id: 1, status: 'pending')
+      invoice_five  = Invoice.create(id: 5, merchant_id: 1, status: 'pending')
+
+      percent_ship = Invoice.percent_shipped
+      percent_pend = Invoice.percent_pending
+
+      expect(percent_ship).to equal(60.0)
+      expect(percent_pend).to equal(40.0)
+    end
+  end
 end
