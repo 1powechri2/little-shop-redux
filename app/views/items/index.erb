@@ -1,21 +1,45 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <link rel='stylesheet' href='/public/items/item_index.css'>
-  <title>Items Index</title>
-</head>
-<body>
-  <h1>Items</h1>
-  <a href='/items/new'> New Item </a>
-  <% @items.each do |item| %>
-    <h2><a href="/items/<%= item.id %>"><%= item.name %></a></h2>
-    <p><%= item.description %></p>
-    <p><%= item.unit_price %></p>
-    <p><%= item.image %></p>
-    <a href="/items/<%= item.id %>/edit">EDIT</a>
-    <form action='/items/<%=item.id%>' method='POST'>
-      <input type='hidden' name='_method' value='DELETE'>
-      <input type='submit' value='Delete'>
-    </form>
-  <% end %>
-</body>
+  <head>
+    <link rel='stylesheet' type='text/css' href='/item_index.css' >
+    <title>Items Index</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <h3>Little Shop</h3>
+      <div class='first'><a href='/merchants'><h3>Merchants</h3></a></div>
+      <div class='second'><a href='/items'><h3>Items</h3></a></div>
+      <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
+    </div>
+    <div class='header'>
+      <a href='/itmes/dashboard' class='dashboard'><h3>Dashboard</h3></a>
+      <h1>Items</h1>
+      <a href='/items/new' class='create-new'><button>Create A New Item</button></a>
+    </div>
+    <div class='index'>
+      <% @items.each do |item| %>
+        <div class=index-instance>
+          <img src='<%= item.image %>'/>
+          <h3><a href="/items/<%= item.id %>" class='index-title'><%= item.name %></a></h3>
+          <p>$<%= item.unit_price.to_s.insert(-3, '.') %></p>
+          <a href="/items/<%= item.id %>/edit" class='edit'><button>Edit</button></a>
+          <form class='delete' action='/items/<%= item.id %>' method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type='submit' value='Delete' />
+          </form>
+        </div>
+      <% end %>
+    <!-- </div>
+    <% @items.each do |item| %>
+      <h2><a href="/items/<%= item.id %>"><%= item.name %></a></h2>
+      <p><%= item.description %></p>
+      <p><%= item.unit_price %></p>
+      <p><%= item.image %></p>
+      <a href="/items/<%= item.id %>/edit">EDIT</a>
+      <form action='/items/<%=item.id%>' method='POST'>
+        <input type='hidden' name='_method' value='DELETE'>
+        <input type='submit' value='Delete'>
+      </form>
+    <% end %> -->
+  </body>
 </html>

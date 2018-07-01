@@ -1,5 +1,12 @@
 RSpec.describe 'a visitor' do
   context 'visiting /items' do
+    it 'has the Items title on the page' do
+      visit '/items'
+
+      within('.header') do
+        expect(page).to have_content('Items')
+      end
+    end
     it 'sees an index of items' do
       item = Item.create(name: 'Doorknob',
                         description: 'Made of wax, weighs 50lbs',
@@ -12,6 +19,7 @@ RSpec.describe 'a visitor' do
       expect(page).to have_current_path('/items')
     end
   end
+
   context 'visiting /items/id' do
     it 'sees the individual item of a specific id' do
       item = Item.create(name: 'Doorknob',
