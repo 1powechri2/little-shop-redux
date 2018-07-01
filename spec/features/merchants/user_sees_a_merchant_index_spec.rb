@@ -69,11 +69,23 @@ RSpec.describe 'a visitor' do
       expect(current_path).to eq('/invoices')
     end
     it 'can take them to the dashboard page' do
-      visit '/merchants'
+        visit '/merchants'
 
       click_on('Dashboard')
 
       expect(current_path).to eq('/merchants/dashboard')
+    end
+    it "it has 'Little Shop' on the page" do
+      visit '/merchants'
+
+      expect(page).to have_content('Little Shop')
+    end
+    it 'has the Merchants title on the page' do
+      visit '/merchants'
+
+      within('.header') do
+        expect(page).to have_content('Merchants')
+      end
     end
   end
 end
