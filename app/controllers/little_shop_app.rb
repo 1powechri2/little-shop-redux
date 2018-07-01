@@ -40,6 +40,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/invoices/:id' do
     @invoice = Invoice.find(params[:id])
+    # total_price = Invoice.get_total_price(@invoice.id)
     erb :'invoices/show'
   end
 
@@ -60,6 +61,14 @@ class LittleShopApp < Sinatra::Base
 
   get '/items/new' do
     erb :'items/new'
+  end
+
+  get '/items/dashboard' do
+    @items_count = Item.total_items
+    @item_price_average = Item.average_unit_price
+    @most_recent_item = Item.most_recent_item
+    @least_recent_item = Item.least_recent_item
+    erb :'items/dashboard'
   end
 
   get '/items/:id' do
