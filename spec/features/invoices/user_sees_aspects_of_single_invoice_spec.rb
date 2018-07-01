@@ -4,6 +4,8 @@ RSpec.describe Invoice do
       invoice = Invoice.create(id: 1, merchant_id: 12335938, status: 'pending')
       invoice_item_1 = InvoiceItem.create(item_id: 263519844, invoice_id: 1, quantity: 5, unit_price: 13635)
       invoice_item_2 = InvoiceItem.create(item_id: 263454779, invoice_id: 1, quantity: 9, unit_price: 23324)
+      item_1 = Item.create(id: 263519844, name: 'Cheese Whiz')
+      item_1 = Item.create(id: 12335938, name: 'Silly String')
 
       visit "/invoices/#{invoice.id}"
 
