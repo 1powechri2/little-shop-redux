@@ -24,6 +24,6 @@ class Merchant < ActiveRecord::Base
 
   def self.by_highest_priced_item
     Merchant.joins(:items).order('unit_price DESC')[0]
-    require 'pry';binding.pry
+    # require 'pry';binding.pry
   end
 end

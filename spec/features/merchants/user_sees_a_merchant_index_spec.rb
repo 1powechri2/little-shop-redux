@@ -15,7 +15,7 @@ RSpec.describe 'a visitor' do
       expect(page).to have_content('a')
       expect(page).to have_content('Farm')
     end
-    it 'can take them to a merchant page' do
+    it 'can take them to an individual merchant page' do
       Merchant.create(name: 'Old')
 
       visit '/merchants'
@@ -33,7 +33,7 @@ RSpec.describe 'a visitor' do
         click_on('Edit')
       end
 
-      expect(current_path).to eq('/merchants/merchant.id/edit')
+      expect(current_path).to eq("/merchants/#{merchant.id}/edit")
     end
     it 'can delete a merchant' do
       Merchant.create(name: 'Old')
@@ -69,7 +69,7 @@ RSpec.describe 'a visitor' do
       expect(current_path).to eq('/invoices')
     end
     it 'can take them to the dashboard page' do
-        visit '/merchants'
+      visit '/merchants'
 
       click_on('Dashboard')
 
