@@ -22,11 +22,13 @@
           <img src='<%= item.image %>'/>
           <h3><a href="/items/<%= item.id %>" class='index-title'><%= item.name %></a></h3>
           <p>$<%= item.unit_price.to_s.insert(-3, '.') %></p>
-          <a href="/items/<%= item.id %>/edit" class='edit'><button>Edit</button></a>
-          <form class='delete' action='/items/<%= item.id %>' method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type='submit' value='Delete' />
-          </form>
+          <div class='buttons'>
+            <a href="/items/<%= item.id %>/edit" class='edit'><button>Edit</button></a>
+            <form class='delete' action='/items/<%= item.id %>' method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type='submit' value='Delete' />
+            </form>
+          </div>
         </div>
       <% end %>
     <!-- </div>
