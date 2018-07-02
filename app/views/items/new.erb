@@ -1,9 +1,33 @@
-<h1> Create a New Item </h1>
-<form action='/items' method='POST'>
-  <input type='text' name='item[name]'/><br/>
-  <input type='text' name='item[description]'/><br/>
-  <input type='text' name='item[unit_price]'/><br/>
-  <input type='text' name='item[image]'/><br/>
-  <input type='submit' value='make a new dang dern item'/>
-</form>
-<a href="/items"> Items Index </a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='/new.css' >
+    <title>New Item</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <h3>Little Shop</h3>
+      <div class='first'><a href='/merchants'><h3>Merchants</h3></a></div>
+      <div class='second'><a href='/items'><h3>Items</h3></a></div>
+      <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
+    </div>
+    <div class='header'>
+      <h1>Create New Item</h1>
+    </div>
+    <div class='form'>
+      <!-- <h3> Name </h3> -->
+      <form action='/items' method='POST'>
+        <h4>Name</h4>
+        <input type='text' name='item[name]'/><br/>
+        <h4>Description</h4>
+        <input type='textarea' name='item[description]'/><br/>
+        <h4>Price</h4>
+        <input type='text' name='item[unit_price]'/><br/>
+        <h4>Image URL</h4>
+        <input type='text' name='item[image]'/><br/>
+        <input type='submit' value='Create Item'/>
+      </form>
+      <a href="/items">Cancel</a>
+    </div>
+  </body>
+</html>

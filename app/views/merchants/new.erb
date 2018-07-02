@@ -1,6 +1,26 @@
-<form action='/merchants' method='post'>
-  <p> Enter a new Merchant: </p>
-  <input type='text' name='merchant[name]'/><br/>
-  <input type='submit' value='do the dang thang'/>
-</form>
-<a href="/merchants"> Merchants Index </a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='/new.css' >
+    <title>New Merchant</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <h3>Little Shop</h3>
+      <div class='first'><a href='/merchants'><h3>Merchants</h3></a></div>
+      <div class='second'><a href='/items'><h3>Items</h3></a></div>
+      <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
+    </div>
+    <div class='header'>
+      <h1>Create New Merchant</h1>
+    </div>
+    <div class='form'>
+      <h3>Name</h3>
+      <form action='/merchants' method='post'>
+        <input type='text' name='merchant[name]'/><br/>
+        <input type='submit' value='Create Merchant'/>
+      </form>
+      <a href="/merchants">Cancel</a>
+    </div>
+  </body>
+</html>

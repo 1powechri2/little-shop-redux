@@ -1,0 +1,74 @@
+body {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50px 200px auto;
+  grid-gap: 5px;
+  font-family: helvetica;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: blue;
+}
+
+.navbar {
+  background-color: lavender;
+  display: grid;
+  grid-template-columns: repeat(12, auto);
+}
+
+.navbar h3 {
+  grid-column: span 2;
+  margin-left: 10px;
+}
+
+.first {
+  grid-column: -3;
+}
+
+.second {
+  grid-column: -2;
+}
+
+.third {
+  grid-column: -1;
+}
+
+.header {
+  background-color: mistyrose;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dash-wrapper {
+  display: grid;
+  grid-template-rows: 100px auto;
+  grid-gap: 20px;
+}
+
+.dash-head {
+  align-self: center;
+  justify-self: center;
+  width: 70%;
+  background-color: lightgray;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.dash-merchants {
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-rows: repeat(auto-fit, minmax);
+}
+
+.dash-instance {
+  background-color: papayawhip;
+  border: 1px solid black;
+}
