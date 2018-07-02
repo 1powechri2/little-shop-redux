@@ -79,7 +79,7 @@ RSpec.describe Invoice do
 
       expect(actual).to eq(expected)
     end
-    it 'finds invoice with highest associated unit price' do
+    it 'finds invoice with lowest associated unit price' do
       invoice_one   = Invoice.create(id: 1, merchant_id: 1, status: 'shipped')
       invoice_two   = Invoice.create(id: 2, merchant_id: 1, status: 'shipped')
 

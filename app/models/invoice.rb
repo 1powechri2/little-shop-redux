@@ -29,4 +29,10 @@ class Invoice < ActiveRecord::Base
     invoice_id    = InvoiceItem.where(unit_price: highest_price).first.invoice_id
     Invoice.find(invoice_id)
   end
+
+  def self.lowest_unit_price
+    lowest_price = InvoiceItem.minimum('unit_price')
+    invoice_id   = InvoiceItem.where(unit_price: lowest_price).first.invoice_id
+    Invoice.find(invoice_id)
+  end
 end
