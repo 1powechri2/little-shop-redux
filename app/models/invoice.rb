@@ -27,12 +27,16 @@ class Invoice < ActiveRecord::Base
   def self.highest_unit_price
     highest_price = InvoiceItem.maximum('unit_price')
     invoice_id    = InvoiceItem.where(unit_price: highest_price).first.invoice_id
-    Invoice.find(invoice_id)
+    find(invoice_id)
   end
 
   def self.lowest_unit_price
     lowest_price = InvoiceItem.minimum('unit_price')
     invoice_id   = InvoiceItem.where(unit_price: lowest_price).first.invoice_id
-    Invoice.find(invoice_id)
+    find(invoice_id)
+  end
+
+  def self.highest_quantity
+    wtf = Invoice.joins(:invoice_items).where(:invoice_items => {quantity: 'quantity'})
   end
 end
