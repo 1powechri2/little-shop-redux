@@ -23,4 +23,10 @@ class Invoice < ActiveRecord::Base
   def self.percent_pending
     100 - percent_shipped
   end
+
+  def self.highest_unit_price
+    highest_price = InvoiceItem.maximum('unit_price')
+    invoice_id    = InvoiceItem.where(unit_price: highest_price).first.invoice_id
+    Invoice.find(invoice_id)
+  end
 end
