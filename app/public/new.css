@@ -1,0 +1,54 @@
+body {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50px 200px auto;
+  grid-gap: 5px;
+  font-family: helvetica;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: blue;
+}
+
+.navbar {
+  background-color: lavender;
+  display: grid;
+  grid-template-columns: repeat(12, auto);
+}
+
+.navbar h3 {
+  grid-column: span 2;
+  margin-left: 10px;
+}
+
+.first {
+  grid-column: -3;
+}
+
+.second {
+  grid-column: -2;
+}
+
+.third {
+  grid-column: -1;
+}
+
+.header {
+  background-color: mistyrose;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  background-color: paleturquoise;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

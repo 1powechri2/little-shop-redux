@@ -24,7 +24,7 @@ RSpec.describe 'a visitor' do
       expect(current_path).to eq('/merchants/1')
       expect(page).to have_content('Old')
     end
-    xit 'can take them to the edit page' do
+    it 'can take them to the edit page' do
       merchant = Merchant.create(name: 'Old')
 
       visit '/merchants'
@@ -44,7 +44,7 @@ RSpec.describe 'a visitor' do
       expect(current_path).to eq('/merchants')
       expect(page).to_not have_content('Old')
     end
-    xit 'can take them to the create new page' do
+    it 'can take them to the create new page' do
       visit '/merchants'
 
       within('.create-new') do
