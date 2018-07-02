@@ -37,6 +37,14 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.highest_quantity
-    wtf = Invoice.joins(:invoice_items).where(:invoice_items => {quantity: 'quantity'})
+    sum = InvoiceItem.group(:invoice_id).sum(:quantity)
+    highest_value = sum.max_by{|k, v| v}
+    find(highest_value[0])
+  end
+
+  def self.lowest_quantity
+    sum = InvoiceItem.group(:invoice_id).sum(:quantity)
+    highest_value = sum.min_by{|k, v| v}
+    find(highest_value[0])
   end
 end
