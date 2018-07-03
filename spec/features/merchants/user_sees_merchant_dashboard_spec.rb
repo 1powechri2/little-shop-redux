@@ -1,3 +1,5 @@
+require 'pry'
+
 RSpec.describe 'a visitor' do
   context 'visiting the merchant dashboard' do
     it 'can see the total amount of items per merchant' do

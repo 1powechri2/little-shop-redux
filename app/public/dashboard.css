@@ -46,29 +46,74 @@ a:hover {
   align-items: center;
 }
 
+.dash-item {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  background-color: papayawhip;
+  height: 500px;
+  text-align: center;
+}
+
+.dash-item div{
+  margin: 20px;
+  border: 2px solid black;
+  background-color: white;
+  height: 225px;
+  padding: 20px;
+}
+
+.dash-item a {
+  text-decoration: underline;
+  color: darkblue;
+}
+
+.dash-item a:hover {
+  color: blue;
+}
+
 .dash-wrapper {
   display: grid;
   grid-template-rows: 100px auto;
   grid-gap: 20px;
+  background-color: papayawhip;
+}
+
+.dash-wrapper a {
+  text-decoration: underline;
+  color: darkblue;
+}
+
+.dash-wrapper a:hover {
+  color: blue;
 }
 
 .dash-head {
+  padding-left: 20px;
   align-self: center;
   justify-self: center;
-  width: 70%;
+  width: 80%;
   background-color: lightgray;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  border: 2px solid black;
+  grid-gap: 20px;
 }
 
 .dash-merchants {
   display: grid;
   grid-gap: 40px;
-  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax);
+  margin: 25px;
 }
 
 .dash-instance {
-  background-color: papayawhip;
-  border: 1px solid black;
+  background-color: white;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+.dash-instance h4 {
+  text-decoration: underline;
 }

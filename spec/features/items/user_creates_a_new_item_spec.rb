@@ -9,7 +9,7 @@ RSpec.describe 'a visitor' do
       fill_in("item[unit_price]", with: 20)
       fill_in("item[image]", with: "images/rolling_rock.jpeg")
 
-      click_on("make a new dang dern item")
+      click_on("Create Item")
 
       expect(page).to have_content("Beer Can")
       expect(page).to have_content(20)

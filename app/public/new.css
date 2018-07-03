@@ -48,7 +48,57 @@ a:hover {
 
 .form {
   background-color: paleturquoise;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-items: center;
+  justify-content: center;
+}
+
+.form-box {
+  border: 1px solid black;
+  height: 350px;
+  width: 600px;
+  margin: 25px;
+  background-color: white;
+  padding: 25px;
+}
+
+.name-box {
+  width: 90%;
+  height: 30px;
+  font-size: 20px;
+}
+
+.edit {
+  grid-column: -2;
+  margin-top: 16px;
+}
+
+.edit button {
+  background-color: yellow;
+  width: 70px;
+  color: black;
+  font-size: 20px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+.edit button:hover {
+  color: blue;
+}
+
+.create {
+
+}
+
+input[type=submit] {
+  background-color: green;
+  color: black;
+  width: 200px;
+  font-size: 15px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+input[type=submit]:hover {
+  color: blue;
 }

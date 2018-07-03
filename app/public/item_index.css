@@ -64,15 +64,16 @@ a:hover {
 }
 
 img {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
+  padding: 20px;
 }
 
 .index {
   background-color: paleturquoise;
   padding: 20px;
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 40px;
   grid-template-columns: repeat(auto-fit, 200px);
   grid-template-rows: repeat(auto-fit, minmax);
 }
@@ -80,18 +81,21 @@ img {
 .index-instance {
   background-color: papayawhip;
   border: 1px solid black;
-  text-align: center;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .index-title {
   text-decoration: underline;
+  display: table-cell;
+  text-align: center;
 }
 
 .edit button {
   background-color: yellow;
   width: 70px;
-  margin: 5px;
   color: black;
   font-size: 20px;
   font-family: helvetica;
