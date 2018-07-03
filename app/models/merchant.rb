@@ -9,7 +9,6 @@ class Merchant < ActiveRecord::Base
   end
 
   def self.average_item_price_for_merchant
-    #WHYWHYWHWYHWYHWYHWYWHWYWY * FROM and GROUP_BY ineffective????
     joins(:items).select('merchants.*, avg(items.unit_price) AS average_unit_price').group('merchants.id')
   end
 
