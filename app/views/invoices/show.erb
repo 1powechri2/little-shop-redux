@@ -1,14 +1,62 @@
-<h1>Invoice No.: <%= @invoice.id %></h1>
-  <h3>Total Amount: $<%= '%.2f' % (@invoice.get_total_price(@invoice.id).to_f/100) %></h3>
-  <a href="/invoices/<%= @invoice.id %>/edit"><button>Edit</button></a>
-  <form action='/invoices/<%= @invoice.id %>' method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type='submit' value='Delete' />
-  </form>
-  <a href="/invoices"> Invoices Index </a>
-  <% @invoice.invoice_items.each do |invoice_item|%>
-    <p>Item ID: <%= invoice_item.item_id %></p>
-    <p>Item Name: <%= invoice_item.item.name %></p>
-    <p>Item Quantity: <%= invoice_item.quantity %></p>
-    <p>Item Price: <%= invoice_item.unit_price.to_s.insert(-3, ".") %></p>
-  <% end %>
+<html>
+<head>
+  <title>Invoice: <%= @invoice.id %></title>
+  <link rel='stylesheet' href='/invoices/invoice-show.css'>
+</head>
+<body>
+  <div class="navbar">
+    <h3>Little Shop</h3>
+    <div class='first'><h3><a href='/merchants'>Merchants</a></h3></div>
+    <div class='second'><a href='/items'><h3>Items</h3></a></div>
+    <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
+  </div>
+  <div class='header'>
+    <h1>Invoice #<%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
+      <div class='button-align'>
+        <a href="/invoices/<%= @invoice.id %>/edit"><button class="edit-button">Edit</button></a>
+        <form background-color='red' action="/invoices/<%= @invoice.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+    <div id="center-container">
+      <a href="/merchants/<%= @merchant.id %>"><h1 class='align-text'><%= @merchant.name %></h1></a>
+      <div class="align-text">
+        <table>
+          <tr>
+            <th width="150px">Item ID</th>
+            <th width="150px">Item Title</th>
+            <th width="150px">Quantity</th>
+            <th width="150px">Unit Price</th>
+          </tr>
+          <% @invoice_items.each do |invoice_item| %>
+          <tr align="center">
+            <td><a href='/items/<%=invoice_item.item_id%>'><%= invoice_item.item_id %></td>
+            <td><%= invoice_item.item.name %></td>
+            <td><%= invoice_item.quantity %></td>
+            <td><%= invoice_item.unit_price %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </table>
+    </div>
+    <!-- <h1>Invoice No.: <%= @invoice.id %></h1>
+    <h3>Total Amount: $<%= '%.2f' % (@invoice.get_total_price(@invoice.id).to_f/100) %></h3>
+    <a href="/invoices/<%= @invoice.id %>/edit"><button>Edit</button></a>
+    <form action='/invoices/<%= @invoice.id %>' method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type='submit' value='Delete' />
+    </form> -->
+    </div>
+  </body>
+</html>
+
+<!-- <a href="/invoices"> Invoices Index </a>
+<% @invoice.invoice_items.each do |invoice_item|%>
+<p>Item ID: <%= invoice_item.item_id %></p>
+<p>Item Name: <%= invoice_item.item.name %></p>
+<p>Item Quantity: <%= invoice_item.quantity %></p>
+<p>Item Price: <%= invoice_item.unit_price.to_s.insert(-3, ".") %></p>
+<% end %> -->
