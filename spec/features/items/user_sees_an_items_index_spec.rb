@@ -83,12 +83,13 @@ RSpec.describe 'a visitor' do
       expect(current_path).to eq('/items')
       expect(page).to_not have_content('Doorknob')
     end
-    xit 'can take them to the create new page' do
+    it 'can take them to the create new page' do
       visit '/items'
+      # save_and_open_page
 
-      within('.create-new') do
+      # within(:css, 'a.create-new') do
         click_button("Create A New Item")
-      end
+      # end
 
       expect(current_path).to eq('/items/new')
       # expect(page).to have_content('Enter a new Item:')
