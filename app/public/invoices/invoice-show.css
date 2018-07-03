@@ -1,7 +1,7 @@
 body {
   height: 100%;
   display: grid;
-  grid-template-rows: 50px 200px auto;
+  grid-template-rows: 50px 160px auto;
   grid-gap: 5px;
   font-family: helvetica;
 }
@@ -10,8 +10,6 @@ a {
   text-decoration: none;
   color: black;
 }
-
-
 
 a:hover {
   color: blue;
@@ -62,10 +60,10 @@ a:hover {
 
 .edit-button {
   margin-right: 50px;
-  width: 250px;
-  height: 59px;
+  width: 200px;
+  height: 39px;
   color: black;
-  font-size: 40px;
+  font-size: 20px;
   font-family: helvetica;
   border: 1px solid black;
 }
@@ -74,9 +72,9 @@ input[type=submit] {
   background-color: indianred;
   margin-left: 40px;
   color: black;
-  width: 250px;
-  height: 58px;
-  font-size: 40px;
+  width: 200px;
+  height: 38px;
+  font-size: 20px;
   font-family: helvetica;
   border: 1px solid black;
 }
@@ -93,18 +91,34 @@ input[type=submit]:hover {
   color: blue;
 }
 
-table {
-  width: 500px;
-  display: table;
-  border-collapse: collapse;
-  margin: auto;
+a.align-text {
+  background-color: aliceblue;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-table {
+.index {
+  background-color: paleturquoise;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.index-instance {
+  width: 70%;
+  height: 30px;
+  background-color: aliceblue;
   border: 1px solid black;
+  margin: 5px;
+  padding: 0px 5px;
+  display: grid;
+  grid-template-columns: 15% 65% 10% 10%;
+  align-content: center;
 }
 
-table td {
-  padding: 1px;
+.index-instance:nth-child(even) {
+  background-color: lightgray;
 }
