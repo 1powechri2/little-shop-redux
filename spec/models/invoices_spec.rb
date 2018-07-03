@@ -58,13 +58,15 @@ RSpec.describe Invoice do
       invoice_two   = Invoice.create(id: 2, merchant_id: 1, status: 'shipped')
       invoice_three = Invoice.create(id: 3, merchant_id: 1, status: 'shipped')
       invoice_four  = Invoice.create(id: 4, merchant_id: 1, status: 'pending')
-      invoice_five  = Invoice.create(id: 5, merchant_id: 1, status: 'pending')
+      invoice_five  = Invoice.create(id: 5, merchant_id: 1, status: 'returned')
 
-      percent_ship = Invoice.percent_shipped
-      percent_pend = Invoice.percent_pending
+      percent_ship  = Invoice.percent_status('shipped')
+      percent_pend  = Invoice.percent_status('pending')
+      percent_retrn = Invoice.percent_status('returned')
 
       expect(percent_ship).to equal(60.0)
-      expect(percent_pend).to equal(40.0)
+      expect(percent_pend).to equal(20.0)
+      expect(percent_retrn).to equal(20.0)
     end
     it 'finds invoice with highest associated unit price' do
       invoice_one   = Invoice.create(id: 1, merchant_id: 1, status: 'shipped')
@@ -74,7 +76,7 @@ RSpec.describe Invoice do
       invoice_item_2 = InvoiceItem.create(id: 2, item_id: 48, invoice_id: 1, quantity: 6, unit_price: 20)
       invoice_item_3 = InvoiceItem.create(id: 3, item_id: 49, invoice_id: 2, quantity: 1, unit_price: 400)
 
-      expected = invoice_two
+      expected = [invoice_item_3]
       actual   = Invoice.highest_unit_price
 
       expect(actual).to eq(expected)
@@ -87,7 +89,7 @@ RSpec.describe Invoice do
       invoice_item_2 = InvoiceItem.create(id: 2, item_id: 48, invoice_id: 1, quantity: 6, unit_price: 5)
       invoice_item_3 = InvoiceItem.create(id: 3, item_id: 49, invoice_id: 2, quantity: 1, unit_price: 400)
 
-      expected = invoice_one
+      expected = [invoice_item_2]
       actual   = Invoice.lowest_unit_price
 
       expect(actual).to eq(expected)
@@ -103,6 +105,20 @@ RSpec.describe Invoice do
 
       expected = invoice_one
       actual   = Invoice.highest_quantity
+
+      expect(actual).to eq(expected)
+    end
+    it 'finds invoice with lowest associated quantity' do
+      invoice_one   = Invoice.create(id: 1, merchant_id: 1, status: 'shipped')
+      invoice_two   = Invoice.create(id: 2, merchant_id: 1, status: 'shipped')
+
+      invoice_item_1 = InvoiceItem.create(id: 1, item_id: 47, invoice_id: 2, quantity: 3, unit_price: 20)
+      invoice_item_2 = InvoiceItem.create(id: 2, item_id: 48, invoice_id: 1, quantity: 6, unit_price: 5)
+      invoice_item_3 = InvoiceItem.create(id: 3, item_id: 49, invoice_id: 2, quantity: 1, unit_price: 400)
+      invoice_item_2 = InvoiceItem.create(id: 4, item_id: 50, invoice_id: 1, quantity: 5, unit_price: 9)
+
+      expected = invoice_two
+      actual   = Invoice.lowest_quantity
 
       expect(actual).to eq(expected)
     end

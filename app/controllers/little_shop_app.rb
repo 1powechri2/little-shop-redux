@@ -46,6 +46,17 @@ class LittleShopApp < Sinatra::Base
     erb :'invoices/index'
   end
 
+  get '/invoices/dashboard' do
+    @percent_shipped  = Invoice.percent_status('shipped')
+    @percent_pending  = Invoice.percent_status('pending')
+    @percent_returned = Invoice.percent_status('returned')
+    @highest_priced   = Invoice.highest_unit_price
+    @lowest_priced    = Invoice.lowest_unit_price
+    @highest_quantity = Invoice.highest_quantity
+    @lowest_quantity  = Invoice.lowest_quantity
+    erb :'invoices/dashboard'
+  end
+
   get '/invoices/:id' do
     @invoice = Invoice.find(params[:id])
     @merchant = @invoice.merchant

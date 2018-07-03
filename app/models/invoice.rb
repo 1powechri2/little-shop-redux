@@ -14,29 +14,31 @@ class Invoice < ActiveRecord::Base
     ii.sum("invoice_items.unit_price * invoice_items.quantity")
   end
 
-  def self.percent_shipped
-    shipped = Invoice.all.where(status: 'shipped').count
+  def self.percent_status(status)
+    shipped = Invoice.all.where(status: status).count
     avg = shipped.to_f/Invoice.all.count
     avg * 100
   end
 
-  def self.percent_pending
-    100 - percent_shipped
-  end
-
   def self.highest_unit_price
     highest_price = InvoiceItem.maximum('unit_price')
-    invoice_id    = InvoiceItem.where(unit_price: highest_price).first.invoice_id
-    find(invoice_id)
+    invoice_id    = InvoiceItem.where(unit_price: highest_price)
   end
 
   def self.lowest_unit_price
     lowest_price = InvoiceItem.minimum('unit_price')
-    invoice_id   = InvoiceItem.where(unit_price: lowest_price).first.invoice_id
-    find(invoice_id)
+    invoice_id   = InvoiceItem.where(unit_price: lowest_price)
   end
 
   def self.highest_quantity
-    wtf = Invoice.joins(:invoice_items).where(:invoice_items => {quantity: 'quantity'})
+    sum = InvoiceItem.group(:invoice_id).sum(:quantity)
+    highest_value = sum.max_by{|k, v| v}
+    find(highest_value[0])
+  end
+
+  def self.lowest_quantity
+    sum = InvoiceItem.group(:invoice_id).sum(:quantity)
+    highest_value = sum.min_by{|k, v| v}
+    find(highest_value[0])
   end
 end

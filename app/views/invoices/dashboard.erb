@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  </head>
+    <title>Invoices Dashboar</title>
+  </head>
+  <body>
+    <div>
+      <h4>Status Percentage</h4>
+      <p>Shipped <%= @percent_shipped.round(1) %></p>
+      <p>Pending <%= @percent_pending.round(1) %></p>
+      <p>Returned <%= @percent_returned.round(1) %></p>
+    </div>
+    <div>
+      <h4>Unit Prices</h4>
+      <h5>Highest</h5>
+      <% @highest_priced.each do |highest| %>
+      <p>Invoice: <%= highest.id %></p>
+      <% end %>
+      <h5>Lowest</h5>
+      <% @lowest_priced.each do |lowest| %>
+      <p>Invoice: <%= lowest.id %></p>
+      <% end %>
+    </div>
+    <div>
+      <h4>Quantity</h4>
+      <h5>Highest</h5>
+      <p>Invoice: <%= @highest_quantity.id %></p>
+      <h5>Lowest</h5>
+      <p>Invoice: <%= @lowest_quantity.id %></p>
+    </div>
+  </body>
+</html>
