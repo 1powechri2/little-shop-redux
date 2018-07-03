@@ -1,20 +1,4 @@
 RSpec.describe Invoice do
-  context 'calculations for index' do
-    xit 'returns the total amount for an invoice' do
-      merchant = Merchant.create(name: 'The Feelz')
-      invoice = Invoice.create(merchant_id: 1, status: 'pending')
-      invoice_item_1 = InvoiceItem.create(item_id: 1, invoice_id: 1, quantity: 5, unit_price: 13635)
-      invoice_item_2 = InvoiceItem.create(item_id: 2, invoice_id: 1, quantity: 9, unit_price: 23324)
-      item_1 = Item.create(name: 'Cheese Whiz', description: 'Cheese that is whizzy', unit_price: 200, merchant_id: 7, image: 'http://whocares.org')
-      item_2 = Item.create(name: 'Silly String', description: 'String that is silly', unit_price: 300, merchant_id: 4, image: 'http://www.idont.org')
-      merchant = Merchant.create(name: 'Billy')
-      expected_result = ('%.2f' % (invoice.get_total_price(invoice.id).to_f/100))
-
-      visit "/invoices/#{invoice.id}"
-
-      expect(page).to have_content(expected_result)
-    end
-  end
   context 'display' do
     it 'returns all item names for an invoice' do
       merchant = Merchant.create(name: 'The Feelz')

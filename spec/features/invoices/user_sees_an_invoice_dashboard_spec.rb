@@ -12,10 +12,10 @@ RSpec.describe 'Invoice Dashboard displays Information' do
       invoice_item_3 = InvoiceItem.create(id: 3, item_id: 49, invoice_id: 2, quantity: 1, unit_price: 400)
 
       visit '/invoices/dashboard'
-
-      expect(page).to have_content('Shipped: 60.0')
-      expect(page).to have_content('Pending: 20.0')
-      expect(page).to have_content('Returned: 20.0')
+      
+      expect(page).to have_content('Shipped 60.0')
+      expect(page).to have_content('Pending 20.0')
+      expect(page).to have_content('Returned 20.0')
     end
     it 'displays highest and lowest unit prices' do
       invoice_one   = Invoice.create(id: 1, merchant_id: 1, status: 'shipped')
@@ -30,8 +30,8 @@ RSpec.describe 'Invoice Dashboard displays Information' do
 
       visit '/invoices/dashboard'
 
-      expect(page).to have_content("#{invoice_item_3.id}")
-      expect(page).to have_content("#{invoice_item_1.id}")
+      expect(page).to have_content("#{invoice_item_3.invoice_id}")
+      expect(page).to have_content("#{invoice_item_1.invoice_id}")
     end
     it 'displays highest and lowest quantity' do
       invoice_one   = Invoice.create(id: 1, merchant_id: 1, status: 'shipped')
@@ -46,8 +46,8 @@ RSpec.describe 'Invoice Dashboard displays Information' do
 
       visit '/invoices/dashboard'
 
-      expect(page).to have_content("#{invoice_item_1.id}")
-      expect(page).to have_content("#{invoice_item_3.id}")
+      expect(page).to have_content("#{invoice_item_1.invoice_id}")
+      expect(page).to have_content("#{invoice_item_3.invoice_id}")
     end
   end
 end
