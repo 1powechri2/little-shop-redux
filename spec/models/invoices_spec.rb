@@ -76,7 +76,7 @@ RSpec.describe Invoice do
       invoice_item_2 = InvoiceItem.create(id: 2, item_id: 48, invoice_id: 1, quantity: 6, unit_price: 20)
       invoice_item_3 = InvoiceItem.create(id: 3, item_id: 49, invoice_id: 2, quantity: 1, unit_price: 400)
 
-      expected = invoice_two
+      expected = [invoice_item_3]
       actual   = Invoice.highest_unit_price
 
       expect(actual).to eq(expected)
@@ -89,7 +89,7 @@ RSpec.describe Invoice do
       invoice_item_2 = InvoiceItem.create(id: 2, item_id: 48, invoice_id: 1, quantity: 6, unit_price: 5)
       invoice_item_3 = InvoiceItem.create(id: 3, item_id: 49, invoice_id: 2, quantity: 1, unit_price: 400)
 
-      expected = invoice_one
+      expected = [invoice_item_2]
       actual   = Invoice.lowest_unit_price
 
       expect(actual).to eq(expected)
