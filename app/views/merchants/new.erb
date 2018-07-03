@@ -15,12 +15,12 @@
       <h1>Create New Merchant</h1>
     </div>
     <div class='form'>
-      <h3>Name</h3>
-      <form action='/merchants' method='post'>
-        <input type='text' name='merchant[name]'/><br/>
-        <input type='submit' value='Create Merchant'/>
+      <form class='form-box' action='/merchants' method='post'>
+        <h3>Name</h3>
+        <input type='text' name='merchant[name]' class='name-box'/><br/>
+        <input type='submit' value='Create Merchant' class='create'/>
+        <form class="cancel" action='/merchants' method="get"><button>Cancel</button></form>
       </form>
-      <a href="/merchants">Cancel</a>
     </div>
   </body>
 </html>
