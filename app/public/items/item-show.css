@@ -11,8 +11,6 @@ a {
   color: black;
 }
 
-
-
 a:hover {
   color: blue;
 }
@@ -93,18 +91,33 @@ input[type=submit]:hover {
   color: blue;
 }
 
-table {
-  width: 500px;
-  display: table;
-  border-collapse: collapse;
-  margin: auto;
-  text-align: center;
+.main-container {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 50px 1fr 1fr 50px;
 }
 
-table {
-  border: 1px solid black;
+.main-left {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-table td {
-  padding: 1px;
+.main-left > a {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.main-left > img {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.main-right {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  /* display: flex;
+  flex-wrap: wrap; */
 }

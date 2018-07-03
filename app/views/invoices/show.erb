@@ -14,7 +14,7 @@
     <h1>Invoice #<%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
       <div class='button-align'>
         <a href="/invoices/<%= @invoice.id %>/edit"><button class="edit-button">Edit</button></a>
-        <form background-color='red' action="/merchants/<%= @invoice.id %>" method="POST">
+        <form background-color='red' action="/invoices/<%= @invoice.id %>" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" value="Delete">
         </form>

@@ -23,7 +23,7 @@
       <div class='items-grid'>
         <% @merchant.items.each do |item| %>
           <div class='item-instance'>
-            <img src='/merchants/falco.jpeg'>
+            <img src='/merchants/falco.jpeg'><br>
             <a href="/items/<%= item.id %>"><%= item.name %></a>
             <p>$<%= item.unit_price.to_s.insert(-3, ".") %></p>
           </div>

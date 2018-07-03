@@ -1,10 +1,35 @@
-<h1><%= @item.name %></h1>
-<p><%= @item.description %></p>
-<p><%= @item.unit_price %></p>
-<p><img src='<% @item.image %>' alt='Capybara'/></p>
-<a href="/items/<%= @item.id %>/edit"><button>EDIT</button></a>
-<form action='/items/<%= @item.id %>' method='POST'>
-  <input type='hidden' name='_method' value='DELETE'>
-  <input type='submit' value='Delete'/>
-</form>
-<a href='/items'>Items Index</a>
+<html>
+<head>
+  <title><%= @item.name %></title>
+  <link rel='stylesheet' href='/items/item-show.css'>
+</head>
+<body>
+  <div class="navbar">
+    <h3>Little Shop</h3>
+    <div class='first'><h3><a href='/merchants'>Merchants</a></h3></div>
+    <div class='second'><a href='/items'><h3>Items</h3></a></div>
+    <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
+  </div>
+  <div class='header'>
+    <h1><%= @item.name %></h1>
+      <div class='button-align'>
+        <a href="/items/<%= @item.id %>/edit"><button class="edit-button">Edit</button></a>
+        <form background-color='red' action="/items/<%= @item.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+    <section class='main-container'>
+      <article class='main-left'>
+        <a href='/merchants/<%= @merchant.id %>'><h1><%= @merchant.name %></h1></a>
+        <img src='/items/hqdefault.jpg'>
+      </article>
+      <article class='main-right'>
+        <h3><%= @item.name %></h3></br>
+        <h4>$<%= @item.unit_price.to_s.insert(-3, '.') %></h4>
+        <h4>草蜢在1985年參加無綫電視及華星唱片合辦的第4屆新秀歌唱大賽，憑著歌曲〈一起衝〉晉身決賽，雖然最終落敗（當屆冠軍為杜德偉），卻獲梅艷芳賞識，邀作其演出時的舞伴，開始跟隨梅艷芳發展歌唱事業。1986年正式簽約梅艷芳任經理人。1987年首次接拍電影《開心勿語》並簽約寶麗金唱片公司。1988年出版第一張粵語專輯《草蜢》，以勁歌熱舞在流行樂壇中另闢蹊徑，終能獨當一面。</h4>
+      </article>
+    </section>
+  </body>
+</html>
