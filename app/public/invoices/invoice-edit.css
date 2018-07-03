@@ -83,6 +83,7 @@ input[type=submit]:hover {
   grid-gap: 10px;
   grid-template-columns: 50px 1fr 50px;
   grid-template-rows: 1fr 1fr;
+  height: auto;
 }
 
 .input-field {
@@ -103,10 +104,35 @@ input[type=submit]:hover {
 }
 
 .bottom-buttons {
+  grid-row-start: 3;
+  grid-row-end: 4;
   max-height: 100px;
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.index {
+  background-color: paleturquoise;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.index-instance {
+  width: 85%;
+  height: 35px;
+  background-color: aliceblue;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 0px 5px;
+  display: grid;
+  grid-template-columns: 15% 65% 10% 10%;
+  align-content: center;
+}
+
+.index-instance:nth-child(even) {
+  background-color: lightgray;
 }

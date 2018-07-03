@@ -17,7 +17,7 @@
     <div class='input-field'>
       <div class='bottom buttons'>
         <input type='hidden' name='_method' value="PUT" />
-        <input type='text' name='invoice[id]' value='<%= @invoice.id %>' /> <br/>
+        <input type='text' name='invoice[id]' value='<%= @invoice.id %>' />
         <form action="/invoices/<%= @invoice.id %>" method="POST">
           <input type="submit" value='Update Invoice'/>
         </form>
@@ -25,9 +25,24 @@
       </div>
     </div>
     <div class='invoice-item-grid'>
-
+      <div class='index'>
+        <div class='index-instance'>
+            <p>Item ID</th>
+            <p>Item Title</p>
+            <p>Quantity</p>
+            <p>Unit Price</p>
+        </div>
+          <% @invoice_items.each do |invoice_item| %>
+            <div class='index-instance'>
+            <a href='/items/<%=invoice_item.item_id%>'><p><%= invoice_item.item_id %></p></a>
+            <p><%= invoice_item.item.name %></p>
+            <p><%= invoice_item.quantity %></p>
+            <p><%= invoice_item.unit_price.to_s.insert(-3, ".") %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
 
-  </div>
+</div>
 </body>
 </html>
