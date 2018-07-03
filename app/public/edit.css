@@ -47,8 +47,24 @@ a:hover {
 }
 
 .edit-display {
-  width: 70%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.edit-display form{
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  padding: 25px;
+  width: 600px;
   height: 350px;
   border: 1px solid black;
+}
 
+.name-box {
+  height: 50px;
+  width:  585px;
+  font-size: 25px;
 }
