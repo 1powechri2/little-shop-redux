@@ -1,14 +1,36 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Item Dashboard</title>
+    <link rel='stylesheet' type='text/css' href='/dashboard.css' >
+    <title>Items Dashboard</title>
   </head>
   <body>
-    <h1>欢迎观临！你这个婊子</h1><br>
-    <h3>Total Items:</h3> <h5><%= @items_count %></h5>
-    <h3>Average Price per Item: </h3><h5>$<%= @item_price_average %></h5>
-    <h3>Most Recent Item: </h3><h5><%= @most_recent_item.name %></h5>
-    <h3>Least Recent Item: </h3><h5><%= @least_recent_item.name %></h5>
+    <div class="navbar">
+      <h3>Little Shop</h3>
+      <div class='first'><a href='/merchants'><h3>Merchants</h3></a></div>
+      <div class='second'><a href='/items'><h3>Items</h3></a></div>
+      <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
+    </div>
+    <div class='header'>
+      <h1>Items Dashboard</h1>
+    </div>
+    <div class='dash-item'>
+      <div>
+        <h3>Total Items</h3>
+        <h1><%= @items_count %></h1>
+      </div>
+      <div>
+        <h3>Average Price per Item</h3>
+        <h1>$<%= @item_price_average.round(2) %></h1>
+      </div>
+      <div>
+        <h3>Item by Age</h3>
+        <h4>Newest Item: </h4>
+        <a href="/items/<%= @most_recent_item.id %>"><h4><%= @most_recent_item.name %></h4></a>
+        <h4>Oldest Item: </h4>
+        <a href="/items/<%= @least_recent_item.id %>"><h4><%= @least_recent_item.name %></h4></a>
+      </div>
+    </div>
   </body>
 </html>
