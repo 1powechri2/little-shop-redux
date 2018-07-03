@@ -1,10 +1,23 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Edit Item</title>
+    <link rel='stylesheet' type='text/css' href='/items/item-edit.css' >
   </head>
   <body>
+    <div class="navbar">
+      <h3>Little Shop</h3>
+      <div class='first'><a href='/merchants'><h3>Merchants</h3></a></div>
+      <div class='second'><a href='/items'><h3>Items</h3></a></div>
+      <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
+    </div>
+    <div class='header'>
+      <h1>Create New Item</h1>
+    </div>
+    <div class='form'>
     <form action="/items/<%= @item.id %>" method="POST">
-      <p>Edit Item</p>
+      <p>Edit <%= @item.name %></p>
+      <p>Merchant <%= @merchant.name %></p>
       <input type='hidden' name='_method' value="PUT" />
       <input type='text' name='item[name]' value='<%= @item.name %>' /> <br/>
       <input type='text' name='item[description]' value='<%= @item.description %>' /> <br/>
@@ -12,5 +25,6 @@
       <input type="submit" value='submit'/>
     </form>
     <a href="/items"> Items Index </a>
+    </div>
   </body>
 </html>
