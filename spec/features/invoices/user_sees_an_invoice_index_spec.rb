@@ -9,15 +9,15 @@ RSpec.describe 'a visitor' do
       expect(page).to have_content(invoice_1.id)
       expect(page).to have_content(invoice_2.id)
     end
-    it 'can take them to an invoice page' do
+    xit 'can take them to an invoice page' do
       invoice_1 = Invoice.create(merchant_id: 123, status: 'pending')
 
       visit '/invoices'
-      within('index-instance:nth-child(1)') do
-        click_link(1)
+      within('index-instance') do
+        click_link( "#{invoice_1.id}")
       end
 
-      expect(current_path).to eq('/invoices/1')
+      expect(current_path).to eq('/invoices/<%= invoice_1.id %>')
       expect(page).to have_content(invoice_1.id)
     end
     it 'can delete an invoice' do
@@ -33,7 +33,7 @@ RSpec.describe 'a visitor' do
   end
   context 'visiting /invoices/id' do
     it 'sees the individual invoice of a specific id' do
-      merchant = Merchant.create('Parcheesi')
+      merchant = Merchant.create(name: 'Parcheesi')
       invoice_1 = Invoice.create(merchant_id: 1, status: 'pending')
 
       visit '/invoices/1'
@@ -41,14 +41,16 @@ RSpec.describe 'a visitor' do
       expect(page).to have_content(invoice_1.id)
     end
   end
-  context 'visiting /invoices/edit' do
+  context 'visiting /invoices/:id/edit' do
     it 'sees the edit form for an invoice' do
-      merchant = Merchant.create('Parcheesi')
+      merchant = Merchant.create(name: 'Parcheesi')
       invoice_1 = Invoice.create(merchant_id: 1, status: 'pending')
 
-      visit '/invoices/1/edit'
+      visit "/invoices/#{invoice_1.id}/edit"
 
-      expect(page).to have_content("Edit Invoice #{invoice_1.id}")
+      expect(page).to have_content("#{invoice_1.id}")
+      expect(page).to have_content("#{invoice_1.status}".capitalize)
+      expect(page).to have_content("#{invoice_1.invoice_items.first}")
     end
   end
 end
