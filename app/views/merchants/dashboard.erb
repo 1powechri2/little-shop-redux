@@ -18,20 +18,23 @@
       <div class='dash-head'>
         <div>
           <h3>Merchant with most items:</h3>
-          <%= @merchant_most_items.name %>
+          <a href="/merchants/<%= @merchant_most_items.id %>"><h3><%= @merchant_most_items.name %></h3></a>
         </div>
         <div>
           <h3>Merchant with most expensive item:</h3>
-          <%= @merchant_with_priciest_item.name %>
+          <a href="/merchants/<%= @merchant_with_priciest_item.id %>"><h3><%= @merchant_with_priciest_item.name %></h3></a>
         </div>
       </div>
       <div class='dash-merchants'>
         <% @merch_stats.each do |merchant| %>
           <div class='dash-instance'>
-            <p><%= merchant.name %></p>
-            <p>Item Count: <%= merchant.total_number_of_items %></p>
-            <p>Avg Item Price: <%= '%.2f' % merchant.average_item_price_for_merchant %></p>
-            <p>Total Cost of Items: <%= '%.2f' % merchant.total_item_cost_for_merchant.to_f %></p>
+            <a href="/merchants/<%= merchant.id %>"><h3><%= merchant.name %></h3></a>
+            <h4>Item Count:</h4>
+            <p><%= merchant.total_number_of_items %></p>
+            <h4>Avg Item Price:</h4>
+            <p><%= '%.2f' % merchant.average_item_price_for_merchant %></p>
+            <h4>Total Cost of Items:</h4>
+            <p><%= '%.2f' % merchant.total_item_cost_for_merchant.to_f %></p>
           </div>
         <% end %>
       </div>
