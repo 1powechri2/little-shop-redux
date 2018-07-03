@@ -17,16 +17,18 @@
     <div class='form'>
       <form action='/items' method='POST' class='form-box'>
         <h4>Name</h4>
-        <input type='text' name='item[name]'/><br/>
+        <input class='name-box' type='text' name='item[name]'/><br/>
         <h4>Description</h4>
-        <input type='textarea' name='item[description]'/><br/>
+        <textarea name='item[description]' rows=4 cols=50></textarea>
         <h4>Price</h4>
-        <input type='text' name='item[unit_price]'/><br/>
+        <input class='name-box' type='text' name='item[unit_price]'/><br/>
         <h4>Image URL</h4>
-        <input type='text' name='item[image]'/><br/>
-        <input type='submit' value='Create Item'/>
+        <input class='name-box' type='text' name='item[image]'/><br/>
+        <div class='buttons'>
+          <a href="/items"><button>Cancel</button></a>
+          <input type='submit' value='Create Item'/>
+        </div>
       </form>
-      <a href="/items">Cancel</a>
     </div>
   </body>
 </html>
