@@ -21,10 +21,12 @@ RSpec.describe 'a visitor' do
                             merchant_id: 2,
                             image: '/images/Auric_Goldfinger.jpg')
 
+      merch_stats = Merchant.merchant_statistics
       visit '/merchants/dashboard'
 
-      expect(page).to have_content(merchant_1.total_number_of_items)
-      expect(page).to have_content(merchant_2.total_number_of_items)
+
+      expect(page).to have_content(merch_stats[0].total_number_of_items)
+      expect(page).to have_content(merch_stats[1].total_number_of_items)
     end
     it 'can see average item price per merchant' do
       merchant_1 = Merchant.create(name: 'Big Lots')
@@ -44,11 +46,13 @@ RSpec.describe 'a visitor' do
                             unit_price: 5000,
                             merchant_id: 2,
                             image: '/images/Auric_Goldfinger.jpg')
+      merch_stats = Merchant.merchant_statistics
 
       visit '/merchants/dashboard'
 
-      expect(page).to have_content(merchant_1.average_item_price_for_merchant)
-      expect(page).to have_content(merchant_2.average_item_price_for_merchant)
+
+      expect(page).to have_content(merch_stats[0].average_item_price_for_merchant)
+      expect(page).to have_content(merch_stats[1].average_item_price_for_merchant)
     end
     it 'can see the total price of items per merchant' do
       merchant_1 = Merchant.create(name: 'Big Lots')
@@ -69,10 +73,11 @@ RSpec.describe 'a visitor' do
                             merchant_id: 2,
                             image: '/images/Auric_Goldfinger.jpg')
 
+      merch_stats = Merchant.merchant_statistics
       visit '/merchants/dashboard'
 
-      expect(page).to have_content(merchant_1.total_item_cost_for_merchant)
-      expect(page).to have_content(merchant_2.total_item_cost_for_merchant)
+      expect(page).to have_content(merch_stats[0].total_item_cost_for_merchant)
+      expect(page).to have_content(merch_stats[1].total_item_cost_for_merchant)
     end
     it 'can see the merchant with the most items' do
       merchant_1 = Merchant.create(name: 'Big Lots')
@@ -95,8 +100,7 @@ RSpec.describe 'a visitor' do
 
       visit '/merchants/dashboard'
 
-      expect(page).to have_content(merchant_1.by_most_items)
-      expect(page).to have_content(merchant_2.by_most_items)
+      expect(page).to have_content("Merchant with most items:\n#{merchant_1.name}")
     end
     it 'can see the merchant with the most expensive item' do
       merchant_1 = Merchant.create(name: 'Big Lots')
@@ -119,8 +123,7 @@ RSpec.describe 'a visitor' do
 
       visit '/merchants/dashboard'
 
-      expect(page).to have_content(merchant_1.by_highest_priced_item)
-      expect(page).to have_content(merchant_2.by_highest_priced_item)
+      expect(page).to have_content("Merchant with most expensive item:\n#{merchant_2.name}")
     end
   end
 end
