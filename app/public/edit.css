@@ -47,6 +47,7 @@ a:hover {
 }
 
 .edit-display {
+  background-color: paleturquoise;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -54,6 +55,7 @@ a:hover {
 }
 
 .edit-display form{
+  background-color: white;
   display: flex;
   flex-direction: column;
   margin: 25px;
@@ -65,6 +67,36 @@ a:hover {
 
 .name-box {
   height: 50px;
-  width:  585px;
+  width:  590px;
   font-size: 25px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-content: center;
+}
+
+.buttons button {
+  background-color: indianred;
+  color: black;
+  width: 150px;
+  font-size: 15px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+
+input[type=submit] {
+  background-color: green;
+  color: black;
+  width: 150px;
+  font-size: 15px;
+  font-family: helvetica;
+  border: 1px solid black;
+}
+
+input[type=submit]:hover {
+  color: blue;
 }

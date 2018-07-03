@@ -18,10 +18,11 @@
       <form action="/merchants/<%= @merchant.id %>" method="POST">
         <p>Name</p>
         <input type='hidden' name='_method' value="PUT" />
-        <div class="">
-        <input type='text' name='merchant[name]' value='<%= @merchant.name %>' class="name-box"/> <br/>
-        <input type="submit" value='Update Merchant'/>
-        <a href="/merchants"> Cancel </a>
+          <input type='text' name='merchant[name]' value='<%= @merchant.name %>' class="name-box"/><br/>
+        <div class='buttons'>
+          <input type="submit" value='Update Merchant'/>
+          <a href="/merchants"><button> Cancel </button></a>
+        </div>
       </form>
     </div>
   </body>
