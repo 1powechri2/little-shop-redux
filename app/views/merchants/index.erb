@@ -12,15 +12,23 @@
       <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
     </div>
     <div class='header'>
-      <a href='/merchants/dashboard' class='dashboard'><h3>Dashboard</h3></a>
+      <form class="dashboard" action='/merchants/dashboard' method="get">
+        <button>Dashboard</button>
+      </form>
+      <!-- <a href='/merchants/dashboard' class='dashboard'><h3>Dashboard</h3></a> -->
       <h1>Merchants</h1>
-      <a href='/merchants/new' class='create-new'><button>Create A New Merchant</button></a>
+      <form class="create-new" action='/merchants/new' method="get">
+        <button>Create A New Merchant</button>
+      </form>
     </div>
     <div class='index'>
       <% @merchants.each do |merchant| %>
         <div class=index-instance>
           <h3><a href="/merchants/<%= merchant.id %>" class='index-title'><%= merchant.name %></a></h3>
-          <a href="/merchants/<%= merchant.id %>/edit" class='edit'><button>Edit</button></a>
+          <form class="edit" action="/merchants/<%= merchant.id %>/edit" method="get">
+            <button>Edit</button>
+          </form>
+          <!-- <a href="/merchants/<%= merchant.id %>/edit" class='edit'><button>Edit</button></a> -->
           <form class='delete' action='/merchants/<%= merchant.id %>' method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <input type='submit' value='Delete' />
