@@ -1,7 +1,7 @@
 body {
   height: 100%;
   display: grid;
-  grid-template-rows: 50px 200px auto;
+  grid-template-rows: 50px 160px auto;
   grid-gap: 5px;
   font-family: helvetica;
 }
@@ -60,10 +60,10 @@ a:hover {
 
 .edit-button {
   margin-right: 50px;
-  width: 100px;
-  height: 50px;
+  width: 200px;
+  height: 39px;
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   font-family: helvetica;
   border: 1px solid black;
 }
@@ -71,10 +71,10 @@ a:hover {
 input[type=submit] {
   background-color: indianred;
   margin-left: 40px;
-  width: 100px;
-  height: 50px;
   color: black;
-  font-size: 25px;
+  width: 200px;
+  height: 38px;
+  font-size: 20px;
   font-family: helvetica;
   border: 1px solid black;
 }

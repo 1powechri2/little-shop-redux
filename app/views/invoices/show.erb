@@ -20,43 +20,43 @@
         </form>
       </div>
     </div>
-    <div id="center-container">
-      <a href="/merchants/<%= @merchant.id %>"><h1 class='align-text'><%= @merchant.name %></h1></a>
-      <div class="align-text">
-        <table>
-          <tr>
-            <th width="150px">Item ID</th>
-            <th width="150px">Item Title</th>
-            <th width="150px">Quantity</th>
-            <th width="150px">Unit Price</th>
-          </tr>
+      <div class='index'>
+        <a background-color='aliceblue' href="/merchants/<%= @merchant.id %>"><h1 class='align-text'><%= @merchant.name %></h1></a>
+        <div class='index-instance'>
+            <p class='item-id'>Item ID</th>
+            <p class='item-name'>Item Title</p>
+            <p class='item-quantity'>Quantity</p>
+            <p class='item-unit-price'>Unit Price</p>
+        </div>
           <% @invoice_items.each do |invoice_item| %>
-          <tr align="center">
-            <td><a href='/items/<%=invoice_item.item_id%>'><%= invoice_item.item_id %></td>
-            <td><%= invoice_item.item.name %></td>
-            <td><%= invoice_item.quantity %></td>
-            <td><%= invoice_item.unit_price.to_s.insert(-3, ".") %></td>
-          </tr>
-          <% end %>
-        </table>
+            <div class='index-instance'>
+            <a class='item-id' href='/items/<%=invoice_item.item_id%>'><p><%= invoice_item.item_id %></p></a>
+            <p class='item-name'><%= invoice_item.item.name %></p>
+            <p class='item-quantity'><%= invoice_item.quantity %></p>
+            <p class='item-unit-price'><%= invoice_item.unit_price.to_s.insert(-3, ".") %></p>
+          </div>
+        <% end %>
       </div>
-    </table>
-    </div>
-    <!-- <h1>Invoice No.: <%= @invoice.id %></h1>
-    <h3>Total Amount: $<%= '%.2f' % (@invoice.get_total_price(@invoice.id).to_f/100) %></h3>
-    <a href="/invoices/<%= @invoice.id %>/edit"><button>Edit</button></a>
-    <form action='/invoices/<%= @invoice.id %>' method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type='submit' value='Delete' />
-    </form> -->
-    </div>
   </body>
 </html>
 
-<!-- <a href="/invoices"> Invoices Index </a>
-<% @invoice.invoice_items.each do |invoice_item|%>
-<p>Item ID: <%= invoice_item.item_id %></p>
-<p>Item Name: <%= invoice_item.item.name %></p>
-<p>Item Quantity: <%= invoice_item.quantity %></p>
-<p>Item Price: <%= invoice_item.unit_price.to_s.insert(-3, ".") %></p>
-<% end %> -->
+
+
+<!-- </div>
+<table>
+  <tr>
+    <th width="150px">Item ID</th>
+    <th width="150px">Item Title</th>
+    <th width="150px">Quantity</th>
+    <th width="150px">Unit Price</th>
+  </tr>
+  <% @invoice_items.each do |invoice_item| %>
+  <tr align="center">
+    <td><a href='/items/<%=invoice_item.item_id%>'><%= invoice_item.item_id %></td>
+    <td><%= invoice_item.item.name %></td>
+    <td><%= invoice_item.quantity %></td>
+    <td><%= invoice_item.unit_price.to_s.insert(-3, ".") %></td>
+  </tr>
+  <% end %>
+</table>
+<div class="align-text"> -->
