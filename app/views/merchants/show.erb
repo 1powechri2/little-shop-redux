@@ -1,7 +1,33 @@
-<h1><%= @merchant.name %></h1>
-<a href="/merchants/<%= @merchant.id %>/edit">Edit</a>
-<form action='/merchants/<%= @merchant.id %>' method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type='submit' value='delete' />
-</form>
-<a href="/merchants"> Merchants Index </a>
+<html>
+  <head>
+    <link rel='stylesheet' href='/merchants/show.css'>
+    <title><%= @merchant.name %></title>
+  </head>
+  <body>
+    <div class="navbar">
+      <h3>Little Shop</h3>
+      <div class='first'><a href='/merchants'><h3>Merchants</h3></a></div>
+      <div class='second'><a href='/items'><h3>Items</h3></a></div>
+      <div class='third'><a href='/invoices'><h3>Invoices</h3></a></div>
+    </div>
+    <div class='header'>
+      <h1><%= @merchant.name %></h1>
+        <div class='button-align'>
+          <a href="/merchants/<%= @merchant.id %>/edit" ><button class="edit-button">Edit</button></a>
+          <form background-color='red' action="/merchants/<%= @merchant.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+          </form>
+        </div>
+      </div>
+      <div class='items-grid'>
+        <% @merchant.items.each do |item| %>
+          <div class='item-instance'>
+            <img src='/merchants/falco.jpeg'>
+            <a href="/items/<%= item.id %>"><%= item.name %></a>
+            <p>$<%= item.unit_price.to_s.insert(-3, ".") %></p>
+          </div>
+        <% end %>
+      </div>
+  </body>
+</html>
