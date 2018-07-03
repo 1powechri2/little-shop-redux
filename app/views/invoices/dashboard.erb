@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel='stylesheet' type='text/css' href='/main.css' >
+    <link rel='stylesheet' type='text/css' href='/dashboard.css' >
     <title>Invoices Dashboard</title>
   </head>
   <body>
@@ -14,7 +14,7 @@
     <div class='header'>
       <h1>Invoices Dashboard</h1>
     </div>
-    <div>
+    <div class='dash-item'>
       <div>
         <h4>Status Percentage</h4>
         <p>Shipped <%= @percent_shipped.round(1) %></p>
@@ -25,19 +25,19 @@
         <h4>Unit Prices</h4>
         <h5>Highest</h5>
         <% @highest_priced.each do |highest| %>
-        <p>Invoice: <%= highest.id %></p>
+        <p>Invoice: <a href="/invoices/<%= highest.invoice_id %>"><%= highest.invoice_id %></a></p>
         <% end %>
         <h5>Lowest</h5>
         <% @lowest_priced.each do |lowest| %>
-        <p>Invoice: <%= lowest.id %></p>
+        <p>Invoice: <a href="/invoices/<%= lowest.invoice_id %>"><%= lowest.invoice_id %></a></p>
         <% end %>
       </div>
       <div>
         <h4>Quantity</h4>
         <h5>Highest</h5>
-        <p>Invoice: <%= @highest_quantity.id %></p>
+        <p>Invoice: <a href="/invoices/<%= @highest_quantity.id %>"><%= @highest_quantity.id %></a></p>
         <h5>Lowest</h5>
-        <p>Invoice: <%= @lowest_quantity.id %></p>
+        <p>Invoice: <a href="/invoices/<%= @lowest_quantity.id %>"><%= @lowest_quantity.id %></a></p>
       </div>
     </div>
   </body>
