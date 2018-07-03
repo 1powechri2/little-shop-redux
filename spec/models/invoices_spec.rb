@@ -58,13 +58,15 @@ RSpec.describe Invoice do
       invoice_two   = Invoice.create(id: 2, merchant_id: 1, status: 'shipped')
       invoice_three = Invoice.create(id: 3, merchant_id: 1, status: 'shipped')
       invoice_four  = Invoice.create(id: 4, merchant_id: 1, status: 'pending')
-      invoice_five  = Invoice.create(id: 5, merchant_id: 1, status: 'pending')
+      invoice_five  = Invoice.create(id: 5, merchant_id: 1, status: 'returned')
 
-      percent_ship = Invoice.percent_shipped
-      percent_pend = Invoice.percent_pending
+      percent_ship  = Invoice.percent_status('shipped')
+      percent_pend  = Invoice.percent_status('pending')
+      percent_retrn = Invoice.percent_status('returned')
 
       expect(percent_ship).to equal(60.0)
-      expect(percent_pend).to equal(40.0)
+      expect(percent_pend).to equal(20.0)
+      expect(percent_retrn).to equal(20.0)
     end
     it 'finds invoice with highest associated unit price' do
       invoice_one   = Invoice.create(id: 1, merchant_id: 1, status: 'shipped')
@@ -116,7 +118,7 @@ RSpec.describe Invoice do
       invoice_item_2 = InvoiceItem.create(id: 4, item_id: 50, invoice_id: 1, quantity: 5, unit_price: 9)
 
       expected = invoice_two
-      actual   = Invoice.lowest_quantity 
+      actual   = Invoice.lowest_quantity
 
       expect(actual).to eq(expected)
     end
