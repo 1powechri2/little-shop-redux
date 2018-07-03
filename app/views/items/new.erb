@@ -16,7 +16,12 @@
     </div>
     <div class='form'>
       <form action='/items' method='POST' class='form-box'>
-        <h4>Name</h4>
+        <h4>Merchant</h4>
+        <select class='name-box'><% @merchants.each do |merchant| %>
+          <option value='<% merchant.name %>'><%= merchant.name %></option>
+          <% end %>
+        </select>
+        <h4>Title</h4>
         <input class='name-box' type='text' name='item[name]'/><br/>
         <h4>Description</h4>
         <textarea name='item[description]' rows=4 cols=50></textarea>
