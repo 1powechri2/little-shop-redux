@@ -69,6 +69,18 @@ RSpec.describe 'a visitor' do
       expect(current_path).to eq('/invoices')
     end
     it 'can take them to the dashboard page' do
+      merchant = Merchant.create(name: 'Big Lots')
+      item_1 = Item.create(name: 'Doorknob',
+                        description: 'Made of wax, weighs 50lbs',
+                        unit_price: 5,
+                        merchant_id: 1,
+                        image: '/images/knob.jpg')
+      item_2 = Item.create(name: 'Elf Boots',
+                            description: 'Size 9 Mens',
+                            unit_price: 135,
+                            merchant_id: 1,
+                            image: '/images/elf_boots.jpg')
+
       visit '/merchants'
 
       click_on('Dashboard')
