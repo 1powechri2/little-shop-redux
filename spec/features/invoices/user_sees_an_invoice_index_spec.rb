@@ -13,7 +13,9 @@ RSpec.describe 'a visitor' do
       invoice_1 = Invoice.create(merchant_id: 123, status: 'pending')
 
       visit '/invoices'
-      click_link(1)
+      within('index-instance:nth-child(1)') do
+        click_link(1)
+      end
 
       expect(current_path).to eq('/invoices/1')
       expect(page).to have_content(invoice_1.id)
@@ -31,7 +33,8 @@ RSpec.describe 'a visitor' do
   end
   context 'visiting /invoices/id' do
     it 'sees the individual invoice of a specific id' do
-      invoice_1 = Invoice.create(merchant_id: 123, status: 'pending')
+      merchant = Merchant.create('Parcheesi')
+      invoice_1 = Invoice.create(merchant_id: 1, status: 'pending')
 
       visit '/invoices/1'
 
@@ -40,7 +43,8 @@ RSpec.describe 'a visitor' do
   end
   context 'visiting /invoices/edit' do
     it 'sees the edit form for an invoice' do
-      invoice_1 = Invoice.create(merchant_id: 123, status: 'pending')
+      merchant = Merchant.create('Parcheesi')
+      invoice_1 = Invoice.create(merchant_id: 1, status: 'pending')
 
       visit '/invoices/1/edit'
 

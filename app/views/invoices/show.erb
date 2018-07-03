@@ -35,7 +35,7 @@
             <td><a href='/items/<%=invoice_item.item_id%>'><%= invoice_item.item_id %></td>
             <td><%= invoice_item.item.name %></td>
             <td><%= invoice_item.quantity %></td>
-            <td><%= invoice_item.unit_price %></td>
+            <td><%= invoice_item.unit_price.to_s.insert(-3, ".") %></td>
           </tr>
           <% end %>
         </table>

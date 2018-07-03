@@ -1,9 +1,11 @@
 RSpec.describe 'item edit feature' do
   context 'visiting item/#/edit page' do
     it 'can edit item from edit page' do
+      merchant = Merchant.create(name: 'Barnacle')
       item = Item.create(name: 'Doorknob',
                          description: 'Made of wax, weighs 50lbs',
                          unit_price: 500,
+                         merchant_id: 1,
                          image: '/images/knob.jpg')
 
 
