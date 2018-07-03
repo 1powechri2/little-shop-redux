@@ -60,10 +60,10 @@ a:hover {
 
 .edit-button {
   margin-right: 50px;
-  width: 250px;
-  height: 59px;
+  width: 100px;
+  height: 50px;
   color: black;
-  font-size: 40px;
+  font-size: 25px;
   font-family: helvetica;
   border: 1px solid black;
 }
@@ -71,10 +71,10 @@ a:hover {
 input[type=submit] {
   background-color: indianred;
   margin-left: 40px;
+  width: 100px;
+  height: 50px;
   color: black;
-  width: 250px;
-  height: 58px;
-  font-size: 40px;
+  font-size: 25px;
   font-family: helvetica;
   border: 1px solid black;
 }

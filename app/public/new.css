@@ -60,6 +60,8 @@ a:hover {
   margin: 25px;
   background-color: white;
   padding: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
 .name-box {
@@ -67,7 +69,7 @@ a:hover {
   height: 30px;
   font-size: 20px;
 }
-
+/*
 .edit {
   grid-column: -2;
   margin-top: 16px;
@@ -84,16 +86,21 @@ a:hover {
 
 .edit button:hover {
   color: blue;
-}
+} */
 
-.create {
-
+.cancel {
+  background-color: indianred;
+  color: black;
+  width: 150px;
+  font-size: 15px;
+  font-family: helvetica;
+  border: 1px solid black;
 }
 
 input[type=submit] {
   background-color: green;
   color: black;
-  width: 200px;
+  width: 150px;
   font-size: 15px;
   font-family: helvetica;
   border: 1px solid black;
